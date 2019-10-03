@@ -1,0 +1,26 @@
+enum (Location) {
+  description (__DESCRIPTION__)
+  symbol (경상)
+  symbol (전라)
+  symbol (충청)
+  symbol (경기)
+  symbol (강원)
+  symbol (인천)
+  symbol (서울)
+  symbol (대전)
+  symbol (광주)
+  symbol (제주)
+  symbol (부산)
+  symbol (대구)
+  symbol (울산)
+
+
+  // symbol (gyeongnam)
+  // symbol (gyeongbuk)
+  // symbol (jeonnam)
+  // symbol (jeonbuk)
+  // symbol (gyeonggi)
+  // symbol (gangwon)
+  // symbol (chungnam)
+  // symbol (chungbuk)
+}

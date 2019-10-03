@@ -1,0 +1,10 @@
+action (FindFestivals) {
+  type(Search)
+  collect {
+    input (location) {
+      type (Location)
+      min (Required) max (One)
+    }
+  }
+  output (Festivals)
+}

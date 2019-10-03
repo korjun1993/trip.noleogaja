@@ -1,0 +1,18 @@
+structure (Festivals) {
+  description (Fesival)
+  property (name) {
+    min (Required)
+    type (Name)
+  }
+
+  property (location) {
+    min (Required)
+    type (Location)
+  }
+  property (image) {
+    type (Image)
+    min (Required)
+  }
+ 
+
+}
