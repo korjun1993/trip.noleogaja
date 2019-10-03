@@ -4,10 +4,18 @@ capsule {
   format (3)
   targets {
     target (bixby-mobile-en-US)
+    target (bixby-mobile-ko-KR)
   }
   runtime-flags {
-    concepts-inherit-super-type-features
-    modern-prompt-rejection
+    no-filtering-with-validation
+    modern-default-view-behavior
+    use-input-views-for-selection-list-detail
     support-halt-effect-in-computed-inputs
+    modern-prompt-rejection
+    concepts-inherit-super-type-features
+  }
+
+  capsule-imports {
+    import (viv.core) { as (core) }
   }
 }
