@@ -13,6 +13,32 @@ structure (Festivals) {
     type (Image)
     min (Required)
   }
- 
-
+  property (beginDate){
+    type(BeginDate)
+    min(Required)
+  }
+  property (endDate){
+    type (EndDate)
+    min (Required)
+  }
+  property (longitude){
+    type(Longitude)
+    min (Required)
+  }
+  property (latitude){
+    type(Latitude)
+    min (Required)
+  }
+  property (ageLimit){
+    type (AgeLimit)
+    min (Required)
+  }
+  property (summary){
+    type (Summary)
+    min (Required)
+  }
+  property (description){
+    type(Description)
+    min (Required)
+  }
 }

@@ -1,5 +1,7 @@
 enum (Location) {
-  description (__DESCRIPTION__)
+  description (대한민국 지역명)
+  
+  // 도
   symbol (경상)
   symbol (전라)
   symbol (충청)
@@ -13,14 +15,8 @@ enum (Location) {
   symbol (부산)
   symbol (대구)
   symbol (울산)
+  
+  // 시
+  symbol (구미)
 
-
-  // symbol (gyeongnam)
-  // symbol (gyeongbuk)
-  // symbol (jeonnam)
-  // symbol (jeonbuk)
-  // symbol (gyeonggi)
-  // symbol (gangwon)
-  // symbol (chungnam)
-  // symbol (chungbuk)
 }
