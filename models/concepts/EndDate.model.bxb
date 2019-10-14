@@ -1,0 +1,3 @@
+text (EndDate) {
+  description (종료 날짜)
+}

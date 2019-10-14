@@ -14,31 +14,33 @@ structure (Festivals) {
     min (Required)
   }
   property (beginDate){
-    type(BeginDate)
     min(Required)
+    type(BeginDate)
   }
   property (endDate){
-    type (EndDate)
     min (Required)
+    type (EndDate)
   }
   property (longitude){
-    type(Longitude)
     min (Required)
+    type(Longitude)
   }
   property (latitude){
-    type(Latitude)
     min (Required)
+    type(Latitude)
   }
   property (ageLimit){
+    min (Required)
     type (AgeLimit)
-    min (Required)
   }
-  property (summary){
-    type (Summary)
+  property (festivalSummary){
     min (Required)
+    type (FestivalSummary)
   }
-  property (description){
-    type(Description)
+  property (festivalDescription){
     min (Required)
+    type(FestivalDescription)
   }
+
+
 }

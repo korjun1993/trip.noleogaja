@@ -1,4 +1,5 @@
-train (t-0c0147ofoh7878og0iuc06w69) {
-  utterance (구미 16일부터 19일까지 알려줘)
-  last-modified (1570444429914)
+train (t-0l1aqrjtnjt3gyyu6z3z86eq6) {
+  utterance ("[g:Festivals] (제주도)[v:Location:제주]에서 하는 축제 알려줘")
+  plan (Y2BmkC1PLS4xNDCozC/VK8kozS0oLi3QcwOKZZYl5hQzKGKVzsxLQSiRwabEJz85sSQzP4+BiYERiBmAJCMDCDBBMAA=)
+  last-modified (1570002253386)
 }

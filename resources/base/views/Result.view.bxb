@@ -1,0 +1,27 @@
+result-view{
+  match : Festivals(this)
+
+  message{
+    template ("#{value(this.location)}에서 진행되고 있는 행사는 #{value(this.name)}입니다")
+  }
+
+  render{
+    list-of (this){
+      where-each (item){
+        layout-macro (festival-result) {
+          param (festivals) {
+            expression(item)
+          }
+        }
+        
+      }
+    }
+
+  }
+
+  conversation-drivers{
+    conversation-driver{
+      template ("태그 test")
+    }
+  }
+}

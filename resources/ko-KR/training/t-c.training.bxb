@@ -1,0 +1,5 @@
+train (t-c7aprsymex12j7ioas9ydqiew) {
+  utterance ("[g:Festivals] (4월)[v:Date]에 하는 축제 알려줘")
+  plan (Y2BmkC1PLS4xNDCozC/VK8kozS0oLi3QcwOKZZYl5hQzKGKVzsxLQSiRwKbEJbEklYGJgRGIGYAkIwMIMEEwAA==)
+  last-modified (1571013765748)
+}

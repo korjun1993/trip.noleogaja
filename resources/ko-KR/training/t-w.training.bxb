@@ -1,0 +1,5 @@
+train (t-wy41lwbg0ha2treiy91e01236) {
+  utterance ("[g:Festivals] (경기도)[v:Location:경기]에 행사 있어?")
+  plan (Y2BmkC1PLS4xNDCozC/VK8kozS0oLi3QcwOKZZYl5hQzKGKVzsxLQSiRwabEJz85sSQzP4+BiYERiBmAJCMDCDBBMAA=)
+  last-modified (1570001567840)
+}

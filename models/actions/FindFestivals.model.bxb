@@ -3,7 +3,10 @@ action (FindFestivals) {
   collect {
     input (location) {
       type (Location)
-      min (Required) max (One)
+    }
+
+    input(date){
+      type (Date)
     }
   }
   output (Festivals)

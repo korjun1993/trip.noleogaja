@@ -1,0 +1,23 @@
+layout-macro-def (festival-result) {
+  params {
+    param (festivals) {
+      type (Festivals)
+      min (Required) max (One)
+    }
+  }
+  content {
+    image-card {
+      aspect-ratio (16:9)
+      image-url ("[#{value(festivals.image)}]")
+      title-area {
+        halign (Start)
+        slot1 {
+          text {
+            value ("#{value(festivals.name)}")
+            style (Title_L)
+          }
+        }
+      }
+    }
+  }
+}
