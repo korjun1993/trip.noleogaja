@@ -3,7 +3,7 @@ module.exports =  function()
   return [
   {
     name: "황소축제",
-    location: "39-00",
+    location: "강원",
     image: "http://bullsland.co.kr/uploadFiles/uploadImg133.jpg",
     ageLimit : "0",
     beginDate : "20200416",
