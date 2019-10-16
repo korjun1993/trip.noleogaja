@@ -1,7 +1,7 @@
 endpoints {
   action-endpoints {
     action-endpoint (FindFestivals) {
-      accepted-inputs (location,date)
+      accepted-inputs (location, dateTimeExpression)
       local-endpoint (FindFestivals.js)
     }
     

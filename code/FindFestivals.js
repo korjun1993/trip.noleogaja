@@ -15,6 +15,6 @@
 // }
 const main = require("main.js")
 
-module.exports.function = function findFestivals (location, date) {
-  return main.findFestivals(location, date);
+module.exports.function = function findFestivals (location, dateTimeExpression) {
+  return main.findFestivals(location, dateTimeExpression);
 }

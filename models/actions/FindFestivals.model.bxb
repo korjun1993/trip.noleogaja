@@ -5,9 +5,11 @@ action (FindFestivals) {
       type (Location)
     }
 
-    input(date){
-      type (Date)
+    input (dateTimeExpression) {
+          type (time.DateTimeExpression)
+          min (Optional) max (One)
     }
+
   }
   output (Festivals)
 }

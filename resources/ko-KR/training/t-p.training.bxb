@@ -1,0 +1,5 @@
+train (t-pr8tu9as6275sbj0hr48lsvkl) {
+  utterance ("[g:Festivals] (다음주)[v:time.DateTimeExpression] 행사 알려줘")
+  plan (Y2BmkCgpyizQy8vPSc1PT8xK1HNLLS7JLEvMKWaQQZfJzEtByEqXZZbplWTmpuq5JJakhgAZrhUFRanFxZn5eQxMDIxAzAAkGRlAgAmCAQ==)
+  last-modified (1571194714381)
+}

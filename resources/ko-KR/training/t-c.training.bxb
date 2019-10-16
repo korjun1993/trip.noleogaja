@@ -1,5 +1,5 @@
 train (t-c7aprsymex12j7ioas9ydqiew) {
-  utterance ("[g:Festivals] (4월)[v:Date]에 하는 축제 알려줘")
-  plan (Y2BmkC1PLS4xNDCozC/VK8kozS0oLi3QcwOKZZYl5hQzKGKVzsxLQSiRwKbEJbEklYGJgRGIGYAkIwMIMEEwAA==)
-  last-modified (1571013765748)
+  utterance ("[g:Festivals] (내년)[v:time.DateTimeExpression]에 하는 축제 알려줘")
+  plan (Y2BmkCgpyizQy8vPSc1PT8xK1HNLLS7JLEvMKWaQQZfJzEtByEqXZZbplWTmpuq5JJakhgAZrhUFRanFxZn5eQxMDIxAzAAkGRlAgAmCAQ==)
+  last-modified (1571121071710)
 }
