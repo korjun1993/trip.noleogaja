@@ -13,8 +13,21 @@
   
 //   return fesinfo;
 // }
+var console = require('console')
+var dates = require("dates")
 const main = require("main.js")
 
 module.exports.function = function findFestivals (location, dateTimeExpression) {
+
+  //이미 지난 날짜는 제외
+  var when;
+  var today = new Date();
+  for(var i = 0; i < dateTimeExpression.length; i++){
+     when = new Date(dates.ZonedDateTime.fromDate(dateTimeExpression[i].date).toIsoString());
+     if( today > when) {
+       dateTimeExpression.splice(i, 1);
+     }
+  }
+
   return main.findFestivals(location, dateTimeExpression);
 }
