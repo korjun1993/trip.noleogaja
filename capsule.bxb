@@ -17,5 +17,8 @@ capsule {
 
   capsule-imports {
     import (viv.core) { as (core) }
+    import (viv.time) {
+      as (time) version (2.92.45)
+    }
   }
 }

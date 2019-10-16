@@ -1,0 +1,5 @@
+train (t-9svz0j96u10ahti0zg706oz2b) {
+  utterance ("[g:FestivalDescription] (내일)[v:time.DateTimeExpression] 행사 알려줘")
+  plan (Y2BhUCopyizQy8vPSc1PT8xK1HNLLS7JLEvMcUktTgbKlGTm5zFI4FBTzCCDLpOZl4KQlS7LLNMrycxN1XNJLEkNATJcKwqKUouLQYYyMzAyMAFJBjDNBCRBgAmIgWIA)
+  last-modified (1571194804367)
+}
