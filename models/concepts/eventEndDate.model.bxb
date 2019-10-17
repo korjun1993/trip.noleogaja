@@ -1,3 +1,3 @@
-text (EndDate) {
+text (eventEndDate) {
   description (종료 날짜)
 }
