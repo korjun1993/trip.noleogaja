@@ -1,5 +1,5 @@
 result-view{
-  match : Festivals(this)
+  match : FestivalList(this)
 
   message{
     template ("#{value(this.location)}에서 진행되고 있는 행사는 #{value(this.name)}입니다 #{size(this)}")
@@ -9,7 +9,7 @@ result-view{
     list-of (this){
       where-each (item){
         layout-macro (festival-result) {
-          param (festivals) {
+          param (festivalList) {
             expression(item)
           }
         }
