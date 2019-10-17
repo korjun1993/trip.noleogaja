@@ -8,9 +8,23 @@ structure (FestivalList) {
     min (Required)
     type (TotalCount)
   }
+  property (inputStartDate) {
+    min (Required)
+    type (InputStartDate)
+  }
+  property (inputEndDate) {
+    min (Required)
+    type (InputEndDate)
+  }
+  property (inputLocation) {
+    min (Required)
+    type (InputLocation)
+  }
+  
+
 
   property (festivals) {
-    min (Required)
+    min (Optional)
     type (Festivals)
   }
   
