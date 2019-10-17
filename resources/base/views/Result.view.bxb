@@ -13,10 +13,8 @@ result-view{
             expression(item)
           }
         }
-        
       }
     }
-
   }
 
   conversation-drivers{

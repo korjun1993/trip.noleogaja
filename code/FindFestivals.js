@@ -13,8 +13,10 @@
   
 //   return fesinfo;
 // }
-const main = require("main.js")
+const main = require("main.js");
+var console = require("console");
 
 module.exports.function = function findFestivals (location, date) {
+  console.log(location);
   return main.findFestivals(location, date);
 }

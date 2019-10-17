@@ -1,5 +1,5 @@
 train (t-qimngpnl9cce21zpsoj13pncy) {
-  utterance ("[g:Festivals] (대구)[v:Location:대구]에 뭐 없나?")
-  plan (Y2BmkMpJLSlOqtTLy89JzU9PzErUc0stLsksS8wpZpDDlMvMS0HIS2LI++QnJ5Zk5ucxMDEwAjEDkGRkAAEmCAYA)
-  last-modified (1571019800766)
+  utterance ("[g:Festivals] (대구)[v:Location:대구광역시-전체]에 뭐 없나?")
+  plan (Y2BmkCgpyizQy8vPSc1PT8xK1HNLLS7JLEvMKWaQQZfJzEtByIqjyfrkJyeWZObnMTAxMAIxA5BkZAABJggGAA==)
+  last-modified (1571203600544)
 }

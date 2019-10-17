@@ -3,8 +3,7 @@ endpoints {
     action-endpoint (FindFestivals) {
       accepted-inputs (location,date)
       local-endpoint (FindFestivals.js)
-    }
-    
+    }  
   }
 }
 
