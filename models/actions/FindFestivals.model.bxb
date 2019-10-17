@@ -11,5 +11,5 @@ action (FindFestivals) {
     }
 
   }
-  output (Festivals)
+  output (FestivalList)
 }

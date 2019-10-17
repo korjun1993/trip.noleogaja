@@ -1,0 +1,3 @@
+text (ContentId) {
+  description (행사 id)
+}
