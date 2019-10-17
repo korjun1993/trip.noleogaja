@@ -27,17 +27,23 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
 
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
+  let pos = location.indexOf('-');
+  let mainLocName = location.substring(0, pos);
+  let subLocName = location.substring(pos + 1);
+
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest');
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P');
   
-  if(location != null) {
-    let code = getAreaCode.getAreaCode('전라남도-나주시');
+  if(location != undefined) {
+    let code = getAreaCode.getAreaCode(location);
     queryParams += '&' + encodeURIComponent('areaCode') + '=' + encodeURIComponent(code.mainLoc);
     if(code.subLoc != 0) {
       queryParams += '&' + encodeURIComponent('sigunguCode') + '=' + encodeURIComponent(code.subLoc);
+    } else {
+      subLocName = '';
     }
   }
 
@@ -45,7 +51,33 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
 
   let response = http.getUrl(baseURL + queryParams, options);
 
-  console.log(response)
+  console.log(response);
+
+  let festivalList = {};
+  let festivals = [];
+  let loopNum = response.response.body.items.item.length;
+  let totalCount = response.response.body.totalCount;
+  let item = null;
+
+  console.log(loopNum);
+
+  for(let i = 0; i < loopNum; i++) {
+    item = response.response.body.items.item[i];
+    festivals.push({
+      "contentId": item.contentid,
+      "title": item.title,
+      "eventStartDate": item.eventstartdate,
+      "eventEndDate": item.eventenddate,
+      "firstImage": item.firstimage,
+      "location": mainLocName + " " + subLocName
+     });
+  }
+
+  festivalList['pageNo'] = pageNo;
+  festivalList['totalCount'] = totalCount;
+  festivalList['Festivals'] = festivals;
   
-  return main.findFestivals(location, dateTimeExpression);
+  console.log(festivalList);
+
+  return [];
 }

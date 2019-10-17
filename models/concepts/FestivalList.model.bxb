@@ -2,11 +2,11 @@ structure (FestivalList) {
   description (페이지넘버, 카운트 추가)
   property (pageNo) {
     min (Required)
-    type (pageNo)
+    type (PageNo)
   }
   property (totalCount) {
     min (Required)
-    type (totalCount)
+    type (TotalCount)
   }
 
   property (festivals) {

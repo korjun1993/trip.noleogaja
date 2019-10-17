@@ -1,4 +1,4 @@
-enum (location) {
+enum (Location) {
   description (대한민국 지역명)
   
   // 도

@@ -2,31 +2,31 @@ structure (Festivals) {
   description (백준이형 request)
   property (contentId) {
     min (Required)
-    type (contentId)
+    type (ContentId)
   }
 
   property (title) {
     min (Required)
-    type (title)
+    type (Title)
   }
 
   property (eventStartDate) {
     min (Required)
-    type (eventStartDate)
+    type (EventStartDate)
   }
 
   property (eventEndDate) {
     min (Required)
-    type (eventEndDate)
+    type (EventEndDate)
   }
 
   property (firstImage) {
     min (Required)
-    type (firstImage)
+    type (FirstImage)
   }
 
   property (location) {
     min (Required)
-    type (location)
+    type (Location)
   }
 }

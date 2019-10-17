@@ -2,7 +2,7 @@ action (FindFestivals) {
   type(Search)
   collect {
     input (location) {
-      type (location)
+      type (Location)
     }
 
     input (dateTimeExpression) {
