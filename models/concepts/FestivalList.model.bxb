@@ -5,9 +5,9 @@ structure (FestivalList) {
     type (ContentId)
   }
 
-  property (name) {
+  property (title) {
     min (Required)
-    type (Name)
+    type (Title)
   }
 
   property (beginDate) {
