@@ -1,0 +1,32 @@
+structure (Festivals) {
+  description (백준이형 request)
+  property (contentId) {
+    min (Required)
+    type (contentId)
+  }
+
+  property (title) {
+    min (Required)
+    type (title)
+  }
+
+  property (eventStartDate) {
+    min (Required)
+    type (eventStartDate)
+  }
+
+  property (eventEndDate) {
+    min (Required)
+    type (eventEndDate)
+  }
+
+  property (firstImage) {
+    min (Required)
+    type (firstImage)
+  }
+
+  property (location) {
+    min (Required)
+    type (location)
+  }
+}

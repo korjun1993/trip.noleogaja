@@ -1,32 +1,17 @@
 structure (FestivalList) {
-  description (백준이형 request)
-  property (contentId) {
+  description (페이지넘버, 카운트 추가)
+  property (pageNo) {
     min (Required)
-    type (ContentId)
+    type (pageNo)
+  }
+  property (totalCount) {
+    min (Required)
+    type (totalCount)
   }
 
-  property (name) {
+  property (festivals) {
     min (Required)
-    type (Name)
+    type (Festivals)
   }
-
-  property (beginDate) {
-    min (Required)
-    type (BeginDate)
-  }
-
-  property (endDate) {
-    min (Required)
-    type (EndDate)
-  }
-
-  property (image) {
-    min (Required)
-    type (Image)
-  }
-
-  property (location) {
-    min (Required)
-    type (Location)
-  }
+  
 }
