@@ -21,67 +21,41 @@ function filterFestivals(candidates, location, dateTimeExpression) {
   }
 
   if (dateTimeExpression) { //string -> date
-    if (dateTimeExpression.date) { //날짜로 들어온 경우
+    if (dateTimeExpression.date) { //날짜로 들어온 경우 -> 시작날짜 : 넘어온 데이터, 종료날짜 : null
+      
       console.log(dateTimeExpression.date)
-      var when = new Date(dates.ZonedDateTime.fromDate(dateTimeExpression.date).toIsoString());
-       candidates = candidates.filter(function(candidate){
+      var year = dateTimeExpression.date.year.toString();
+      var month = dateTimeExpression.date.month.toString();
+      var day = dateTimeExpression.date.day.toString();
 
-        var y = candidate.beginDate.substr(0,4);
-        var m = candidate.beginDate.substr(4,2);
-        var d = candidate.beginDate.substr(6,2); 
-        var startDate = new Date(y, m - 1, d); //해당 행사의 시작날짜
-
-        y = candidate.endDate.substr(0,4);
-        m = candidate.endDate.substr(4,2);
-        d = candidate.endDate.substr(6,2);
-        var endDate = new Date(y, m - 1, d); //해당 행사의 종료날짜
-        
-        if((startDate <= when) && (endDate >= when)){
-          console.log(startDate);
-          console.log(when);
-          console.log(endDate);
-          console.log("@@@@@@@@@@@@@@@@@")
-        }
-        return (startDate <= when) && (endDate >= when)
-      })
+      var startDate = year + (month[1] ? month : '0' + month[0]) + (day[1] ? day : '0' + day[0]); //시작날짜
+      console.log(startDate);
+      var endDate = null; //종료날짜
+      console.log(endDate);
+      
     }
     else if (dateTimeExpression.dateInterval) { //기간으로 들어온 경우
       console.log(dateTimeExpression.dateInterval);
-      whenStart = new Date(dates.ZonedDateTime.of(
-        dateTimeExpression.dateInterval.start.year,
-        dateTimeExpression.dateInterval.start.month,
-        dateTimeExpression.dateInterval.start.day).toIsoString());
-        
-      whenEnd = new Date(dates.ZonedDateTime.of(
-        dateTimeExpression.dateInterval.end.year,
-        dateTimeExpression.dateInterval.end.month,
-        dateTimeExpression.dateInterval.end.day).toIsoString());
 
-        candidates = candidates.filter(function(candidate){
-          var y = candidate.beginDate.substr(0,4);
-          var m = candidate.beginDate.substr(4,2);
-          var d = candidate.beginDate.substr(6,2); 
-          var startDate = new Date(y, m - 1, d); //해당 행사의 시작날짜
+      var year = dateTimeExpression.dateInterval.start.year.toString();
+      var month = dateTimeExpression.dateInterval.start.month.toString();
+      var day = dateTimeExpression.dateInterval.start.day.toString();
 
-          y = candidate.endDate.substr(0,4);
-          m = candidate.endDate.substr(4,2);
-          d = candidate.endDate.substr(6,2);
-          var endDate = new Date(y, m - 1, d); //해당 행사의 종료날짜
+      var startDate = year + (month[1] ? month : '0' + month[0]) + (day[1] ? day : '0' + day[0]); //시작날짜
+      console.log(startDate);
+      
+      year = dateTimeExpression.dateInterval.end.year.toString();
+      month = dateTimeExpression.dateInterval.end.month.toString();
+      day = dateTimeExpression.dateInterval.end.day.toString();
 
-          if(((startDate >= whenStart) && (startDate <= whenEnd)) || ((endDate >= whenStart) && (endDate <= whenEnd))){
-            console.log(startDate);
-            console.log(whenStart);
-            console.log(whenEnd);
-            console.log(endDate);
-            console.log("@@@@@@@@@@@@@@@@@")
-          }
-          return ((startDate >= whenStart) && (startDate <= whenEnd)) || ((endDate >= whenStart) && (endDate <= whenEnd))
-        })
+      var endDate = year + (month[1] ? month : '0' + month[0]) + (day[1] ? day : '0' + day[0]); //시작날짜
+      console.log(endDate);
+
     }
     
   }
-  
-  return candidates;
+ 
+  return [];
 
 }
 

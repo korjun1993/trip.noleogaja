@@ -14,17 +14,7 @@ var options = {
 };
 
 module.exports.function = function findFestivals (location, dateTimeExpression) {
-
-  //이미 지난 날짜는 제외
-  let when = null;
-  let today = new Date();
-  for(var i = 0; i < dateTimeExpression.length; i++){
-     when = new Date(dates.ZonedDateTime.fromDate(dateTimeExpression[i].date).toIsoString());
-     if( today > when) {
-       dateTimeExpression.splice(i, 1);
-     }
-  }
-
+  
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let pos = location.indexOf('-');
@@ -79,5 +69,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   
   console.log(festivalList);
 
+  console.log(main.findFestivals(location, dateTimeExpression[0]));
+  
   return [];
 }
