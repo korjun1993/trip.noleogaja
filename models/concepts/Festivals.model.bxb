@@ -21,12 +21,12 @@ structure (Festivals) {
   }
 
   property (firstImage) {
-    min (Required)
+    min (Optional)
     type (FirstImage)
   }
 
-  property (location) {
+  property (outputLocation) {
     min (Required)
-    type (Location)
+    type (OutputLocation)
   }
 }
