@@ -1,0 +1,5 @@
+train (t-d1y1f9e459g27v8pfk6mbw66k) {
+  utterance ("[g:Festivals] (달서구)[v:Location:대구광역시-달서구]에 있는 축제 알려줘")
+  plan (Y2BmkCgpyizQy8vPSc1PT8xK1HNLLS7JLEvMKWaQQZfJzEtByIqjyfrkJyeWZObnMTAxMAIxA5BkZAABJggGAA==)
+  last-modified (1571204156210)
+}

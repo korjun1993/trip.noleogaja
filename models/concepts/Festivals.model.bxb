@@ -41,6 +41,4 @@ structure (Festivals) {
     min (Required)
     type(FestivalDescription)
   }
-
-
 }

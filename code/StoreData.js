@@ -12,7 +12,6 @@ module.exports =  function()
     longitude : "0",
     festivalSummary : "0",
     festivalDescription : "0"
-
   },
   {
     name: "일오행사",
