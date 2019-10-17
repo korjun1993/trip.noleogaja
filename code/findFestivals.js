@@ -72,7 +72,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
 
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
-  festivalList['Festivals'] = festivals;
+  festivalList['festivals'] = festivals;
   
   console.log(festivalList);
 

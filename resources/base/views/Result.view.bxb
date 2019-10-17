@@ -2,7 +2,7 @@ result-view{
   match : FestivalList(this)
 
   message{
-    template ("에서 진행되고 있는 행사는 입니다 #{size(this)}")
+    template ("에서 있는 행사는 입니다 #{value(this.totalCount)}")
   }
 
   render{

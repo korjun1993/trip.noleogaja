@@ -8,12 +8,12 @@ layout-macro-def (festival-result) {
   content {
     image-card {
       aspect-ratio (16:9)
-      image-url ("[#{value(festivalList.image)}]")
+      image-url("[#{value(festivalList.festivals.firstImage)}]")
       title-area {
         halign (Start)
         slot1 {
           text {
-            value ("#{value(festivalList.name)}")
+            value("[#{value(festivalList.festivals.title)}]")
             style (Title_L)
           }
         }

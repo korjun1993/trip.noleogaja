@@ -10,7 +10,7 @@ structure (FestivalList) {
   }
 
   property (festivals) {
-    min (Required)
+    min (Optional)
     type (Festivals)
   }
   
