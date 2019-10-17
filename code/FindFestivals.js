@@ -1,11 +1,6 @@
 var baseURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
 var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
-var console = require('console')
-var dates = require("dates")
-
-const main = require("main.js")
-const getAreaCode = require('GetAreaCode.js')
 var options = {
   format: 'json',
   headers: {
@@ -13,13 +8,18 @@ var options = {
   },
 };
 
+var console = require('console')
+var dates = require("dates")
+
+const getAreaCode = require('lib/getAreaCode.js')
+const getDate = require('lib/getDate.js')
+
 module.exports.function = function findFestivals (location, dateTimeExpression) {
-  
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
-  let pos = location.indexOf('-');
-  let mainLocName = location.substring(0, pos);
-  let subLocName = location.substring(pos + 1);
+  let pos = null;
+  let mainLocName = null;
+  let subLocName = null;
 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
@@ -28,6 +28,10 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P');
   
   if(location != undefined) {
+    pos = location.indexOf('-');
+    mainLocName = location.substring(0, pos);
+    subLocName = location.substring(pos + 1);
+
     let code = getAreaCode.getAreaCode(location);
     queryParams += '&' + encodeURIComponent('areaCode') + '=' + encodeURIComponent(code.mainLoc);
     if(code.subLoc != 0) {
@@ -37,19 +41,22 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     }
   }
 
-  queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent('20191016');
+  if(dateTimeExpression) {
+    let dates = getDate.getDate(dateTimeExpression[0])
+    queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(dates.startDate);
+    if(dates.endDate != null) {
+      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(dates.endDate);
+    }
+  }
 
+  //API 요청
   let response = http.getUrl(baseURL + queryParams, options);
-
-  console.log(response);
 
   let festivalList = {};
   let festivals = [];
   let loopNum = response.response.body.items.item.length;
   let totalCount = response.response.body.totalCount;
   let item = null;
-
-  console.log(loopNum);
 
   for(let i = 0; i < loopNum; i++) {
     item = response.response.body.items.item[i];
@@ -69,7 +76,5 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   
   console.log(festivalList);
 
-  console.log(main.findFestivals(location, dateTimeExpression[0]));
-  
-  return [];
+  return festivalList;
 }
