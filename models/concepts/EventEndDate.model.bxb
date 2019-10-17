@@ -1,0 +1,3 @@
+name (EventEndDate) {
+  description (종료 날짜)
+}
