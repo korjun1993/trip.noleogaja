@@ -25,7 +25,7 @@ structure (FestivalList) {
 
   property (festivals) {
     min (Optional)
+    max (Many)
     type (Festivals)
   }
-  
 }
