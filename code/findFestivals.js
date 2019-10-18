@@ -17,9 +17,6 @@ const getDate = require('lib/getDate.js')
 module.exports.function = function findFestivals (location, dateTimeExpression) {
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
-  let pos = null;
-  let mainLocName = null;
-  let subLocName = null;
   let festivalList = {};
 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
@@ -29,9 +26,9 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P');
   
   if(location != undefined) {
-    pos = location.indexOf('-');
-    mainLocName = location.substring(0, pos);
-    subLocName = location.substring(pos + 1);
+    let pos = location.indexOf('-');
+    let mainLocName = location.substring(0, pos);
+    let subLocName = location.substring(pos + 1);
     let returnName = location.substring(0, pos);
     
     if(subLocName != "전체") {
@@ -94,13 +91,16 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
 
     for(let i = 0; i < loopNum; i++) {
       item = response.response.body.items.item[i];
+      let pos = item.addr1.indexOf(' ');
+      pos = item.addr1.indexOf(' ', pos + 1);
+
       festivals.push({
         "contentId": item.contentid,
         "title": item.title,
-        "eventStartDate": item.eventstartdate,
-        "eventEndDate": item.eventenddate,
+        "eventStartDate": parseInt(item.eventstartdate % 1000000 / 10000) + "년 " + parseInt(item.eventstartdate % 10000 / 100) + "월 " + parseInt(item.eventstartdate % 100) + "일",
+        "eventEndDate": parseInt(item.eventenddate % 1000000 / 10000) + "년 " + parseInt(item.eventenddate % 10000 / 100) + "월 " + parseInt(item.eventenddate % 100) + "일",
         "firstImage": item.firstimage,
-        "outputLocation": mainLocName + " " + subLocName
+        "outputLocation": item.addr1.substring(0, pos)
       });
     }
   }
