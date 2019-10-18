@@ -3,7 +3,11 @@ endpoints {
     action-endpoint (FindFestivals) {
       accepted-inputs (location, dateTimeExpression)
       local-endpoint (findFestivals.js)
-    }  
+    }
+    action-endpoint (GetLocation) {
+      accepted-inputs (locationError)
+      local-endpoint (getLocation.js)
+    }
   }
 
   action-endpoints {

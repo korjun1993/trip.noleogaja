@@ -1,0 +1,5 @@
+train (t-umrifymfdct0dlv4xs0busnjx) {
+  utterance ("[g:trip.noleogaja.FestivalList] 이중에서 (대구)[v:trip.noleogaja.Location:대구광역시-전체] 축제 알려줘")
+  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
+  last-modified (1571381249972)
+}
