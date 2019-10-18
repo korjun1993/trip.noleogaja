@@ -1,0 +1,5 @@
+train (t-8uj802g9xbsa29aem8fpl1wtq) {
+  utterance ("[g:FestivalList] (대구)[v:Location:대구광역시-전체]에 뭐 있노")
+  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
+  last-modified (1571376739676)
+}
