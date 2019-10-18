@@ -48,7 +48,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
       subLocName = '';
     }
   } else {
-    festivalList['inputLocation'] = null;
+    festivalList['inputLocation'] = ' ';
   }
 
   if(dateTimeExpression.length != 0) {
@@ -56,7 +56,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     
     festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
     if(when.endDate == null) {
-      festivalList['inputEndDate'] = null
+      festivalList['inputEndDate'] = ' ';
     } else {
       festivalList['inputEndDate'] =  when.endDate.substring(0, 4) + "년 " + when.endDate.substring(4, 6) + "월 " + when.endDate.substring(6, 8) + "일";
     }
@@ -82,7 +82,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(today);
 
     festivalList['inputStartDate'] = year + "년 " + month + "월 " + day + "일";
-    festivalList['inputEndDate'] = null;
+    festivalList['inputEndDate'] = ' ';
   }
 
   //API 요청
@@ -93,9 +93,9 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   if(totalCount != 0) {
     let loopNum = response.response.body.items.item.length;
     let item = null;
-
-    for(let i = 0; i < loopNum; i++) {
-      item = response.response.body.items.item[i];
+    
+    if(loopNum == undefined) {
+      item = response.response.body.items.item;
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
 
@@ -107,6 +107,21 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
         "firstImage": item.firstimage,
         "outputLocation": item.addr1.substring(0, pos)
       });
+    } else {
+      for(let i = 0; i < loopNum; i++) {
+        item = response.response.body.items.item[i];
+        let pos = item.addr1.indexOf(' ');
+        pos = item.addr1.indexOf(' ', pos + 1);
+
+        festivals.push({
+          "contentId": item.contentid,
+          "title": item.title,
+          "eventStartDate": parseInt(item.eventstartdate % 1000000 / 10000) + "년 " + parseInt(item.eventstartdate % 10000 / 100) + "월 " + parseInt(item.eventstartdate % 100) + "일",
+          "eventEndDate": parseInt(item.eventenddate % 1000000 / 10000) + "년 " + parseInt(item.eventenddate % 10000 / 100) + "월 " + parseInt(item.eventenddate % 100) + "일",
+          "firstImage": item.firstimage,
+          "outputLocation": item.addr1.substring(0, pos)
+        });
+      }
     }
   }
 
