@@ -1,0 +1,60 @@
+structure (ShowDetail) {
+  description (상세저옵)
+  property (addr1) {
+    type (Addr1)
+  }
+
+  property (contentId){
+    type(ContentId)
+  }
+  property (contentTypeId){
+    type (ContentTypeId)
+  }
+
+  property (homePage){
+    type(HomePage)
+  }
+  property (overView){
+    type(OverView)
+  }
+  property (tel){
+    type(Tel)
+  }
+  property (telName){
+    type (TelName)
+  }
+  property (title){
+    type(Title)
+  }
+  property (imgUrl){
+    type(ImgUrl)
+  }
+  property (ageLimit){
+    type (AgeLimit)
+  }
+  property (discountInfoFestival){
+    type(DiscountInfoFestival)
+  }
+  property (eventStartDate){
+    type(EventStartDate)
+  }
+  property (eventEndDate){
+    type(EventEndDate)
+  }
+  property (eventPlace){
+    type (EventPlace)
+  }
+  property (useTimeFestival){
+    type(UseTimeFestival)
+  }
+  property (placeInfo){
+    type(PlaceInfo)
+  }
+  property (playTime){
+    type(PlayTime)
+  }
+  property (subEvent){
+    type(SubEvent)
+  }
+
+}

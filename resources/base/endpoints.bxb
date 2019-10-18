@@ -5,5 +5,12 @@ endpoints {
       local-endpoint (findFestivals.js)
     }  
   }
+
+  action-endpoints {
+    action-endpoint (SelectShowDetail) {
+      accepted-inputs (contentId)
+      local-endpoint (sex.js)
+    }  
+  }
 }
 

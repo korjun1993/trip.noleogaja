@@ -1,0 +1,11 @@
+action (SelectShowDetail) {
+  description (__DESCRIPTION__)
+  type(Fetch)
+  collect {
+    input (contentId) {
+      type (ContentId)
+      min (Required) max (One)
+    }
+  }
+  output (ShowDetail)
+}
