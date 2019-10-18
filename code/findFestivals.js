@@ -55,7 +55,11 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     let when = getDate.getDate(dateTimeExpression[0])
     
     festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
-    festivalList['inputEndDate'] =  when.endDate.substring(0, 4) + "년 " + when.endDate.substring(4, 6) + "월 " + when.endDate.substring(6, 8) + "일";
+    if(when.endDate == null) {
+      festivalList['inputEndDate'] = null
+    } else {
+      festivalList['inputEndDate'] =  when.endDate.substring(0, 4) + "년 " + when.endDate.substring(4, 6) + "월 " + when.endDate.substring(6, 8) + "일";
+    }
 
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(when.startDate);
     if(when.endDate != null) {
