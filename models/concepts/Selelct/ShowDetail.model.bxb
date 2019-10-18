@@ -28,6 +28,7 @@ structure (ShowDetail) {
   }
   property (imgUrl){
     type(ImgUrl)
+    max (Many)
   }
   property (ageLimit){
     type (AgeLimit)
@@ -56,5 +57,4 @@ structure (ShowDetail) {
   property (subEvent){
     type(SubEvent)
   }
-
 }

@@ -4,17 +4,16 @@ endpoints {
       accepted-inputs (location, dateTimeExpression)
       local-endpoint (findFestivals.js)
     }
+
     action-endpoint (GetLocation) {
       accepted-inputs (locationError)
       local-endpoint (getLocation.js)
     }
-  }
-
-  action-endpoints {
+    
     action-endpoint (SelectShowDetail) {
       accepted-inputs (contentId)
-      local-endpoint (sex.js)
-    }  
+      local-endpoint (selectShowDetail.js)
+    }
   }
 }
 
