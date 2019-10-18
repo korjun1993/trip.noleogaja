@@ -41,8 +41,13 @@
 4. 제목은 <u>**개조식 구문으로 작성**</u>한다.
    - -하기, -음, -추가, -삭제 등
    - ex : [ 기능 : 로그 출력 기능 추가 ]
+5. merge시 제목을 다음과 같은 형식으로 작성한다.
+   - [기타 : merge]
 
-
+<p align="center">
+  <img src="./img/merge_message.PNG"/>
+  <img src="./img/merge_message2.PNG"/>
+</p>
 
 ## 본문
 
