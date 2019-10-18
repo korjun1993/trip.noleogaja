@@ -1,5 +1,3 @@
-var console = require('console')
-
 module.exports = {
   "getDate": getDate,
 }
@@ -9,7 +7,6 @@ function getDate(dateTimeExpression) {
   let startDate = null;
   let endDate = null;
 
-  console.log(dateTimeExpression)
   if (dateTimeExpression.date) { //날짜로 들어온 경우 -> 시작날짜 : 넘어온 데이터, 종료날짜 : null
     
     let year = dateTimeExpression.date.year.toString();
@@ -32,9 +29,6 @@ function getDate(dateTimeExpression) {
 
     endDate = year + (month[1] ? month : '0' + month[0]) + (day[1] ? day : '0' + day[0]); //시작날짜
   }
-
-  console.log(startDate);
-  console.log(endDate);
 
   return {
     "startDate": startDate,

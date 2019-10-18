@@ -41,40 +41,53 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     }
   }
 
-  if(dateTimeExpression) {
-    let dates = getDate.getDate(dateTimeExpression[0])
-    queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(dates.startDate);
-    if(dates.endDate != null) {
-      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(dates.endDate);
+  if(dateTimeExpression.length != 0) {
+    let when = getDate.getDate(dateTimeExpression[0])
+    queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(when.startDate);
+    if(when.endDate != null) {
+      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.endDate);
     }
+  } else {
+    let tday = new Date();
+    let year = tday.getFullYear();
+    let month = tday.getMonth() + 1
+    let day = tday.getDate();
+    if(month < 10){
+        month = "0" + month;
+    }
+    if(day < 10){
+        day = "0" + day;
+    }
+    let today = year + "" + month + "" + day;
+    queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(today);
   }
 
   //API 요청
   let response = http.getUrl(baseURL + queryParams, options);
-
+  let totalCount = response.response.body.totalCount;
   let festivalList = {};
   let festivals = [];
-  let loopNum = response.response.body.items.item.length;
-  let totalCount = response.response.body.totalCount;
-  let item = null;
 
-  for(let i = 0; i < loopNum; i++) {
-    item = response.response.body.items.item[i];
-    festivals.push({
-      "contentId": item.contentid,
-      "title": item.title,
-      "eventStartDate": item.eventstartdate,
-      "eventEndDate": item.eventenddate,
-      "firstImage": item.firstimage,
-      "location": mainLocName + " " + subLocName
-     });
+  if(totalCount != 0) {
+    let loopNum = response.response.body.items.item.length;
+    let item = null;
+
+    for(let i = 0; i < loopNum; i++) {
+      item = response.response.body.items.item[i];
+      festivals.push({
+        "contentId": item.contentid,
+        "title": item.title,
+        "eventStartDate": item.eventstartdate,
+        "eventEndDate": item.eventenddate,
+        "firstImage": item.firstimage,
+        "outputLocation": mainLocName + " " + subLocName
+      });
+    }
   }
 
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;
-  
-  console.log(festivalList);
 
   return festivalList;
 }
