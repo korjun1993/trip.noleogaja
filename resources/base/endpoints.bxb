@@ -3,14 +3,12 @@ endpoints {
     action-endpoint (FindFestivals) {
       accepted-inputs (location, dateTimeExpression)
       local-endpoint (findFestivals.js)
-    }  
-  }
-
-  action-endpoints {
+    }
+    
     action-endpoint (SelectShowDetail) {
       accepted-inputs (contentId)
-      local-endpoint (sex.js)
-    }  
+      local-endpoint (selectShowDetail.js)
+    }
   }
 }
 
