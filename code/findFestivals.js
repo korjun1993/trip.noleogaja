@@ -20,6 +20,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   let pos = null;
   let mainLocName = null;
   let subLocName = null;
+  let festivalList = {};
 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
@@ -31,6 +32,13 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     pos = location.indexOf('-');
     mainLocName = location.substring(0, pos);
     subLocName = location.substring(pos + 1);
+    let returnName = location.substring(0, pos);
+    
+    if(subLocName != "전체") {
+      returnName += subLocName;
+    }
+
+    festivalList['inputLocation'] = returnName;
 
     let code = getAreaCode.getAreaCode(location);
     queryParams += '&' + encodeURIComponent('areaCode') + '=' + encodeURIComponent(code.mainLoc);
@@ -39,10 +47,20 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     } else {
       subLocName = '';
     }
+  } else {
+    festivalList['inputLocation'] = null;
   }
 
   if(dateTimeExpression.length != 0) {
     let when = getDate.getDate(dateTimeExpression[0])
+    
+    festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
+    if(when.endDate == null) {
+      festivalList['inputEndDate'] = null
+    } else {
+      festivalList['inputEndDate'] =  when.endDate.substring(0, 4) + "년 " + when.endDate.substring(4, 6) + "월 " + when.endDate.substring(6, 8) + "일";
+    }
+
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(when.startDate);
     if(when.endDate != null) {
       queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.endDate);
@@ -60,12 +78,14 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     }
     let today = year + "" + month + "" + day;
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(today);
+
+    festivalList['inputStartDate'] = year + "년 " + month + "월 " + day + "일";
+    festivalList['inputEndDate'] = null;
   }
 
   //API 요청
   let response = http.getUrl(baseURL + queryParams, options);
   let totalCount = response.response.body.totalCount;
-  let festivalList = {};
   let festivals = [];
 
   if(totalCount != 0) {
@@ -88,6 +108,8 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;
+  
+  console.log(festivalList)
 
   return festivalList;
 }
