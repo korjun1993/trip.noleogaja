@@ -64,6 +64,8 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(when.startDate);
     if(when.endDate != null) {
       queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.endDate);
+    } else {
+      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.startDate);
     }
   } else {
     let tday = new Date();
