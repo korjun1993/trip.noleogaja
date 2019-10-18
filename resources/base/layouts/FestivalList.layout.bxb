@@ -1,20 +1,33 @@
 layout-macro-def (festival-result) {
   params {
-    param (festivalList) {
-      type (FestivalList)
+    param (festivals) {
+      type (Festivals)
       min (Required) max (One)
     }
   }
   content {
     image-card {
-      aspect-ratio (16:9)
-      image-url("[#{value(festivalList.festivals.firstImage)}]")
+      aspect-ratio (21:9)
+      image-url("[#{value(festivals.firstImage)}]")
       title-area {
         halign (Start)
-        slot1 {
-          text {
-            value("[#{value(festivalList.festivals.title)}]")
-            style (Title_L)
+        slot1{
+            text{
+              value("[#{value(festivals.outputLocation)}]")
+              style(Detail_M)
+            }
+        }
+        slot2{
+          paragraph{
+            value("[#{value(festivals.eventStartDate)}] ~ [#{value(festivals.eventEndDate)}]")
+            style(Detail_M)
+          }
+        }
+        slot3 {
+
+          paragraph {
+            value("[#{value(festivals.title)}]")
+            style(Title_M)
           }
         }
       }

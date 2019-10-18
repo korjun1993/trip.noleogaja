@@ -19,6 +19,9 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let festivalList = {};
 
+  console.log(location);
+  console.log(dateTimeExpression);
+
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
