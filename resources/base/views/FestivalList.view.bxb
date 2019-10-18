@@ -1,0 +1,35 @@
+result-view{
+  match : FestivalList(this)
+
+  message{
+    if(this.inputLocation != null && this.inputStartDate != null && this.inputEndDate != null){
+      template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }else-if(this.inputLocation != null && this.inputStartDate != null){
+      template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }else-if(this.inputLocation != null){
+      template ("#{value(this.inputLocation)}에서 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }else-if(this.inputStartDate != null && this.inputEndDate != null){
+      template ("#{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }else-if(this.inputStartDate != null){
+      template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }
+  }
+
+  render{
+    list-of (this.festivals){
+      where-each (item){
+        layout-macro (festival-result) {
+          param (festivals) {
+            expression(item)
+          }
+        }
+      }
+    }
+  }
+
+  conversation-drivers{
+    conversation-driver{
+      template ("태그 test")
+    }
+  }
+}
