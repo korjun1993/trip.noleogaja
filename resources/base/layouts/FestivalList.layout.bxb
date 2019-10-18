@@ -24,7 +24,6 @@ layout-macro-def (festival-result) {
           }
         }
         slot3 {
-
           paragraph {
             value("[#{value(festivals.title)}]")
             style(Title_M)
