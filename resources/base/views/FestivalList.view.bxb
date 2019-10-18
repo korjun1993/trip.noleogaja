@@ -2,15 +2,15 @@ result-view{
   match : FestivalList(this)
 
   message{
-    if(this.inputLocation != null && this.inputStartDate != null && this.inputEndDate != null){
+    if(this.totalCount == 0){
+      template ("검색된 결과가 없습니다.")
+    }else-if(this.inputLocation != ' ' && this.inputStartDate != ' ' && this.inputEndDate != ' '){
       template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개 입니다.")
-    }else-if(this.inputLocation != null && this.inputStartDate != null){
+    }else-if(this.inputLocation != ' ' && this.inputStartDate != ' '){
       template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
-    }else-if(this.inputLocation != null){
-      template ("#{value(this.inputLocation)}에서 검색결과는 #{value(this.totalCount)}개 입니다.")
-    }else-if(this.inputStartDate != null && this.inputEndDate != null){
+    }else-if(this.inputStartDate != ' ' && this.inputEndDate != ' '){
       template ("#{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개 입니다.")
-    }else-if(this.inputStartDate != null){
+    }else-if(this.inputStartDate != ' '){
       template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
     }
   }
