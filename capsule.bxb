@@ -15,10 +15,25 @@ capsule {
     concepts-inherit-super-type-features
   }
 
+  permissions {
+    user-profile-access
+  }
+
   capsule-imports {
-    import (viv.core) { as (core) }
+    import (viv.core) {
+      as (core)
+    }
+    import (viv.entity) {
+      as (entity)
+      version (3.21.0)
+    }
     import (viv.time) {
-      as (time) version (2.92.45)
+      as (time)
+      version-from (entity)
+    }
+    import (viv.geo) { 
+      as (geo)
+      version-from (entity)
     }
   }
 }

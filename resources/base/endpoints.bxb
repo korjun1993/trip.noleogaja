@@ -14,6 +14,11 @@ endpoints {
       accepted-inputs (contentId)
       local-endpoint (selectShowDetail.js)
     }
+
+    action-endpoint (FindFestivalsByGPS) {
+      accepted-inputs (point)
+      local-endpoint (findFestivalsByGPS.js)
+    }
   }
 }
 
