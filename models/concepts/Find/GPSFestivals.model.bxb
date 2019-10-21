@@ -1,0 +1,27 @@
+structure (GPSFestivals) {
+  description (GPS 기반의 축제 찾기)
+  property (contentId) {
+    min (Required)
+    type (ContentId)
+  }
+
+  property (title) {
+    min (Required)
+    type (Title)
+  }
+
+  property (dist) {
+    min (Required)
+    type (Dist)
+  }
+
+  property (firstImage) {
+    min (Optional)
+    type (FirstImage)
+  }
+
+  property (outputLocation) {
+    min (Required)
+    type (OutputLocation)
+  }
+}

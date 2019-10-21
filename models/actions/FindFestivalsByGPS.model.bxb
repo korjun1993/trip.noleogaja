@@ -1,0 +1,10 @@
+action (FindFestivalsByGPS) {
+  description (GPS 기반으로 축제 찾기)
+  collect {
+    input (point) {
+      type (geo.CurrentLocation)
+      min (Required) max (One)
+    }
+  }
+  output (GPSFestivalList)
+}
