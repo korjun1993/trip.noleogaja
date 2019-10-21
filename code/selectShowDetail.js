@@ -18,8 +18,9 @@ module.exports.function = function selectShowDetail (contentId) {
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
   queryParams += '&' + encodeURIComponent('contentId') + '=' + encodeURIComponent(contentId);
   queryParams += '&' + encodeURIComponent('contentTypeId') + '=' + encodeURIComponent('15');
+  commonEndQuery = "&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y";
   
-  let commonResponse = http.getUrl(datailCommonURL + queryParams, options).response.body.items.item;
+  let commonResponse = http.getUrl(datailCommonURL + queryParams + commonEndQuery, options).response.body.items.item;
   let imageResponse = http.getUrl(detailImageURL + queryParams, options).response.body;
   let introResponse = http.getUrl(detailIntroURL + queryParams, options).response.body.items.item;
   let detail = {};
@@ -42,26 +43,26 @@ module.exports.function = function selectShowDetail (contentId) {
     }
   }
 
-  detail['addr1'] = commonResponse.addr1;
-  detail['contentId'] = commonResponse.contentid;
-  detail['contentTypeId'] = commonResponse.contenttypeid;
-  detail['homePage'] = commonResponse.homepage;
-  detail['overView'] = commonResponse.overview;
-  detail['tel'] = commonResponse.tel;
-  detail['telName'] = commonResponse.telname;
-  detail['title'] = commonResponse.title;
+  detail['addr1'] = commonResponse.addr1 ? commonResponse.addr1 : " ";
+  detail['contentId'] = commonResponse.addr1 ? commonResponse.contentid : " ";
+  detail['contentTypeId'] = commonResponse.contenttypeid ? commonResponse.contenttypeid : " ";
+  detail['homePage'] = commonResponse.homepage ? commonResponse.homepage : " ";
+  detail['overView'] = commonResponse.overview ? commonResponse.overview : " ";
+  detail['tel'] = commonResponse.tel ? commonResponse.tel : " ";
+  detail['telName'] = commonResponse.telname ? commonResponse.telname : " ";
+  detail['title'] = commonResponse.title ? commonResponse.title : " ";
 
-  detail['imgUrl'] = images;
+  detail['imgUrl'] = images ? images : " ";
 
-  detail['ageLimit'] = introResponse.agelimit;
-  detail['discountInfoFestival'] = introResponse.discountinfofestival;
-  detail['eventStartDate'] = introResponse.eventstartdate;
-  detail['eventEndDate'] = introResponse.eventenddate;
-  detail['eventPlace'] = introResponse.eventplace;
-  detail['useTimeFestival'] = introResponse.usetimefestival;
-  detail['placeInfo'] = introResponse.placeinfo;
-  detail['playTime'] = introResponse.playtime;
-  detail['subEvent'] = introResponse.subevent;
+  detail['ageLimit'] = introResponse.agelimit ? introResponse.agelimit : " ";
+  detail['discountInfoFestival'] = introResponse.discountinfofestival ? introResponse.discountinfofestival : " ";
+  detail['eventStartDate'] = introResponse.eventstartdate ? introResponse.eventstartdate : " ";
+  detail['eventEndDate'] = introResponse.eventenddate ? introResponse.eventenddate : " ";
+  detail['eventPlace'] = introResponse.eventplace ? introResponse.eventplace : " ";
+  detail['useTimeFestival'] = introResponse.usetimefestival ? introResponse.usetimefestival : " ";
+  detail['placeInfo'] = introResponse.placeinfo ? introResponse.placeinfo : " ";
+  detail['playTime'] = introResponse.playtime ? introResponse.playtime : " ";
+  detail['subEvent'] = introResponse.subevent ? introResponse.subevent : " ";
 
   return detail;
 }
