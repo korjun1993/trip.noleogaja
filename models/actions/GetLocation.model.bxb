@@ -1,5 +1,5 @@
 action (GetLocation) {
-  type(Constructor)
+  type(Search)
   description (동일명의 지역중에서 한개를 선택)
   collect {
     input (locationError) {

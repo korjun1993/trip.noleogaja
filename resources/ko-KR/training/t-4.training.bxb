@@ -1,0 +1,5 @@
+train (t-4vjge4skmxexofkkvasi93ifx) {
+  utterance ("[g:FestivalList] (동구)[v:LocationError] (내일)[v:time.DateTimeExpression] 축제 알려줘")
+  plan (dYtRCsJADESnVr2CYHuGPYW1P/30AosNEqm7JQmLx3dbtB8LZhh48DI4ojHh2YU4UXz4p3dXUuPkp4HV0JaSw/h7UJwKO8S7N44B50L0ZJtr/4w6kShoEidn/CJ38Ua3DN17FlJdpgdU2KHGPhO+XOVg7XJ17mo/)
+  last-modified (1571727424102)
+}

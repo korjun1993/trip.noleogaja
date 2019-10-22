@@ -1,3 +1,8 @@
+train (t-t2z9bhl57jd4nekdzwn27kdid) {
+  utterance ("[g:FestivalList] (동구)[v:LocationError] 축제 알려줘")
+  plan (Y2BlkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jkEKTcE8tgcvJ4NDkWlSUX8TAwsDIwMTADKQZoCxGMAsEmIAYKA4A)
+  last-modified (1571727998518)
+}
 train (t-t3jdg97ozxb6s0cbx4xzhzixv) {
   utterance ("[g:FestivalList] (대구 중구)[v:Location:대구광역시-중구] 축제 알려줘")
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
