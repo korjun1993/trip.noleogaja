@@ -7,7 +7,6 @@ module.exports.function = function locationErrorHandler (locationError) {
 
   let map = new HashMap();
   return map.get(locationError);
-  
   // return 중 사용자가 하나의 지역을 선택할 수 있도록 합니다.  
 }
 
