@@ -9,7 +9,7 @@ action (FindFestivals) {
           type (time.DateTimeExpression)
           min (Optional) max (Many)
     }
-
   }
-  output (FestivalList)
+  output (FestivalList){
+  }
 }

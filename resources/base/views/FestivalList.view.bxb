@@ -14,7 +14,7 @@ result-view{
       template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
     }
   }
-
+  
   render{
     list-of (this.festivals){
       where-each (item){

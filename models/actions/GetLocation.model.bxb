@@ -4,8 +4,8 @@ action (GetLocation) {
   collect {
     input (locationError) {
       type (LocationError)
-      min (Optional) max (One)
+      min (Required) max (One)
     }
   }
-  output (LocationGroup)
+  output (Location)
 }
