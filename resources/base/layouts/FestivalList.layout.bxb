@@ -5,6 +5,7 @@ layout-macro-def (festival-result) {
       min (Required) max (One)
     }
   }
+
   content {
     image-card {
       aspect-ratio (21:9)
@@ -27,6 +28,19 @@ layout-macro-def (festival-result) {
           paragraph {
             value("[#{value(festivals.title)}]")
             style(Title_M)
+          }
+        }
+        
+      }
+      on-click{
+        intent{
+          goal: ShowDetail
+          value: Festivals{
+            contentId : $expr(festivals.contentId)
+            eventStartDate : $expr(festivals.eventStartDate)
+            eventEndDate : $expr(festivals.eventEndDate)
+            title : $expr(festivals.title)
+            outputLocation : $expr(festivals.outputLocation)
           }
         }
       }
