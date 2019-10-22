@@ -1,0 +1,3 @@
+integer (Dist) {
+  description (거리)
+}

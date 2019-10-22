@@ -1,5 +1,6 @@
-train (t-fcwjhy08abcl2g6mxnuyeo5z8) {
-  utterance ("[g:FestivalList] (내일)[v:time.DateTimeExpression] 행사 알려줘")
-  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmkC7LLNMrycxN1XNJLEkNATJcKwqKUouLM/PzGJgYGIGYAUgyMoAAEwQDAA==)
-  last-modified (1571643065678)
+
+train (t-f81lbaeaz30qv8vzmpfjmd3xj) {
+  utterance ("[g:GPSFestivalList] (내 근처)[v:geo.CurrentLocation]에서 찾아줘")
+  plan (Y2BmkCspyizQy8vPSc1PT8xK1HMPCHZLLS7JLEvM8cksLmFQRJN3y8xLgSkodqoEKmcQL8ss00tPzddzLi0qSs0r8clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
+  last-modified (1571642542933)
 }
