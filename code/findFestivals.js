@@ -1,4 +1,3 @@
-var baseURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
 var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
 var options = {
@@ -9,6 +8,7 @@ var options = {
 };
 
 var console = require('console')
+var config = require('config')
 var dates = require("dates")
 
 const getAreaCode = require('lib/getAreaCode.js')
@@ -18,9 +18,6 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let festivalList = {};
-
-  console.log(location);
-  console.log(dateTimeExpression);
 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
@@ -87,7 +84,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   }
 
   //API 요청
-  let response = http.getUrl(baseURL + queryParams, options).response.body;
+  let response = http.getUrl(config.get('searchFestival.url') + queryParams, options).response.body;
   let totalCount = response.totalCount;
   let festivals = [];
 

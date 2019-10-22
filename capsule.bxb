@@ -3,7 +3,6 @@ capsule {
   version (0.1.0)
   format (3)
   targets {
-    target (bixby-mobile-en-US)
     target (bixby-mobile-ko-KR)
   }
   runtime-flags {

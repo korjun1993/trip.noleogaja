@@ -98,3 +98,45 @@
 
 - https://tttsss77.tistory.com/58
 
+
+
+# Git ignore
+
+
+
+## 문법
+
+```
+# : comments
+
+# no .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in the build/ directory
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory
+doc/**/*.pdf
+```
+
+
+
+## 적용하기
+
+기존에 있던 Project에 .gitignore File이 적용이 안되는 경우에는 다음 명령어를 적용해본다.
+
+```
+git rm -r --cached .
+git add .
+git commit
+```
+
