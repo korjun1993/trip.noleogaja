@@ -1,0 +1,11 @@
+result-view{
+  match : ShowDetail(this)
+
+  render{
+    layout-macro (festival-detail){
+      param (festivalDetail){
+        expression (this)
+      } 
+    }
+  }
+}

@@ -16,15 +16,30 @@ result-view{
   }
   
   render{
-    list-of (this.festivals){
-      where-each (item){
-        layout-macro (festival-result) {
-          param (festivals) {
-            expression(item)
+    layout{
+      section{
+        content{
+          for-each (this.festivals){
+            as (item){
+              layout-macro (festival-result){
+                param (festivals){
+                  expression (item)
+                }
+              }
+            }
           }
         }
       }
     }
+    // list-of (this.festivals){
+    //   where-each (item){
+    //     layout-macro (festival-result) {
+    //       param (festivals) {
+    //         expression(item)
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   conversation-drivers{

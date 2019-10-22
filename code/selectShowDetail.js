@@ -12,7 +12,8 @@ var options = {
 
 var console = require('console')
 
-module.exports.function = function selectShowDetail (contentId) {
+module.exports.function = function selectShowDetail (festivals) {
+  let contentId = festivals.contentId;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
