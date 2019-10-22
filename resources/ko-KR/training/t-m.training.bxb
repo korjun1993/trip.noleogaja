@@ -1,5 +1,0 @@
-train (t-mkl6dbevlp3hr4ayinvqecnkr) {
-  utterance ("[g:LocationGroup] (동구)[v:LocationError] 행사 알려줘")
-  plan (Y2BmkCkpyizQy8vPSc1PT8xK1PPJT04syczPcy/KLy1gkEKTdU8tgSnAqdO1qCi/iIGJgRGIGYAkIwMIMEEwAA==)
-  last-modified (1571633935917)
-}
