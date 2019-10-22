@@ -1,5 +1,10 @@
+train (t-u6mxnhkwolnb6j7nxxutuauih) {
+  utterance ("[g:FestivalList] (대구)[v:Location:대구광역시-전체]에서 (11월)[v:time.DateTimeExpression]에 할꺼 뭐 있어")
+  plan (Y2BhkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jkC7LLNMrycxN1XNJLEkNATJcKwqKUouLQZLMDIwMTECSAUiDIASA+GBRAA==)
+  last-modified (1571642812602)
+}
 train (t-umrifymfdct0dlv4xs0busnjx) {
-  utterance ("[g:trip.noleogaja.FestivalList] 이중에서 (대구)[v:trip.noleogaja.Location:대구광역시-전체] 축제 알려줘")
+  utterance ("[g:FestivalList] 이중에서 (대구)[v:Location:대구광역시-전체] 축제 알려줘")
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
-  last-modified (1571381249972)
+  last-modified (1571641996164)
 }

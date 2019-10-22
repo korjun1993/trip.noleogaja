@@ -1,5 +1,5 @@
-train (t-r8t5h5j4a74l0x5jffrjaad19) {
-  utterance ("[g:FestivalList] (광주 남구)[v:Location:광주광역시-남구] 축제 알려줘")
+train (t-r6o6w9al5dqgylpzp7auyv9wk) {
+  utterance ("[g:FestivalList] (서울)[v:Location:서울특별시-전체] 어디갈까")
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
-  last-modified (1571381835033)
+  last-modified (1571637227557)
 }
