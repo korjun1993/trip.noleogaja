@@ -1,0 +1,5 @@
+train (t-pp7cqwgdvvg37w5ecfobdntur) {
+  utterance ("[g:FestivalList] (서울)[v:Location:서울특별시-전체] 어디 갈까")
+  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
+  last-modified (1571637050010)
+}

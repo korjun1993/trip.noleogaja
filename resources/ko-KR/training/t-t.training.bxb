@@ -3,3 +3,8 @@ train (t-t3jdg97ozxb6s0cbx4xzhzixv) {
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
   last-modified (1571382808459)
 }
+train (t-t8dny9pv7l7klgkd3f8mlr4eb) {
+  utterance ("[g:FestivalList] (내일)[v:time.DateTimeExpression] (대구)[v:Location:대구광역시-전체]에서 할꺼 뭐 있어")
+  plan (Y2BhkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jkC7LLNMrycxN1XNJLEkNATJcKwqKUouLQZLMDIwMTECSAUiDIASA+GBRAA==)
+  last-modified (1571645416093)
+}

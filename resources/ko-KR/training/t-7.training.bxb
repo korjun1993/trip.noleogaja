@@ -3,3 +3,8 @@ train (t-7fy2hyll87927rq2cs06m0kn8) {
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmkC7LLNMrycxN1XNJLEkNATJcKwqKUouLM/PzGJgYGIGYAUgyMoAAEwQDAA==)
   last-modified (1571275873551)
 }
+train (t-7txol63jd3twbn7f6gjfcn3r6) {
+  utterance ("[g:FestivalList] (내일)[v:time.DateTimeExpression] 행사 알려줘")
+  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmkC7LLNMrycxN1XNJLEkNATJcKwqKUouLM/PzGJgYGIGYAUgyMoAAEwQDAA==)
+  last-modified (1571704010340)
+}

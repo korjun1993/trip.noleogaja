@@ -1,0 +1,5 @@
+train (t-4zqgjjykgnmt5622ffmvqedex) {
+  utterance ("[g:FestivalList] (대구)[v:Location:대구광역시-전체]에서 (내일)[v:time.DateTimeExpression] 뭐 할까")
+  plan (Y2BhkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jkC7LLNMrycxN1XNJLEkNATJcKwqKUouLQZLMDIwMTECSAUiDIASA+GBRAA==)
+  last-modified (1571645499365)
+}
