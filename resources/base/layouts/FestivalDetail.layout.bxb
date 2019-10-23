@@ -5,14 +5,73 @@ layout-macro-def (festival-detail) {
       min (Optional) max (One)
     }
   }
+  
+  content {
+    section {
+      content {
+        image-carousel {
+          images (festivalDetail.imgUrl) // 미완
+        }
+        title-area {
+          halign (Center)
+          slot1 {
+            text {
+              value ("#{value(festivalDetail.title)}")
+              style (Title_M)
+            }
+          }
+          slot2{
+            paragraph{
+              value("#{value(festivalDetail.addr1)}")
+              style(Legal)
+            }
+          }
+          slot3{
+            paragraph{
+              value("#{value(festivalDetail.eventStartDate)} ~ #{value(festivalDetail.eventEndDate)}")
+            }
+          }
+        }
+        divider
+        partitioned{
+          content{
+            paragraph{
+              value{
+                template ("#{value(festivalDetail.telName)} : #{value(festivalDetail.tel)}")
+              }
+            }
+            single-line{
+              text{
+                value("ddddddddddd  ")
+              }
+            }
+          }
+        }
+        
+        attribution-link{
+          label("홈페이지 : ")
+          url(festivalDetail.homepage)
+        }
+        attribution-link{
+          label("전화 : #{value(festivalDetail.tel)}")
+          url(festivalDetail.tel)
+        }
+        compound-card{
 
-  content{
-    title-area{
-      slot1{
-        text{
-          value("#{value(festivalDetail.contentId)}")
-          // todo
-          // 상세 정보 페이지 구현
+        }
+        cell-card{
+          slot2{
+            content{
+              primary("문의")
+              secondary("#{value(festivalDetail.telName)} : #{value(festivalDetail.tel)}")
+            }
+            content{
+              secondary("홈페이지 : #{value(festivalDetail.homePage)}")
+            }
+          }
+          on-click{
+
+          }
         }
       }
     }

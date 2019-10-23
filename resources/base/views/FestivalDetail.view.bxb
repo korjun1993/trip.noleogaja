@@ -1,9 +1,13 @@
 result-view{
   match : ShowDetail(this)
 
+  message{
+    template ("")
+  }
+
   render{
     layout-macro (festival-detail){
-      param (festivalDetail){
+      param (festivalDetail){  
         expression (this)
       } 
     }

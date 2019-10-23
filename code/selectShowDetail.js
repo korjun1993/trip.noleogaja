@@ -62,5 +62,7 @@ module.exports.function = function selectShowDetail (festivals) {
   detail['playTime'] = introResponse.playtime ? introResponse.playtime : " ";
   detail['subEvent'] = introResponse.subevent ? introResponse.subevent : " ";
 
+  console.log(detail)
+
   return detail;
 }
