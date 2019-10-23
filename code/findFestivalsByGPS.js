@@ -26,7 +26,6 @@ module.exports.function = function findFestivalsByGPS (point) {
   queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent('20000');
 
   let response = http.getUrl(config.get('locationBasedList.url') + queryParams, options).response.body;
-
   let totalCount = response.totalCount;
   let festivalList = {};
   let festivals = [];
