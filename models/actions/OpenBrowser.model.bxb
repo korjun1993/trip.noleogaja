@@ -1,0 +1,15 @@
+action (OpenBrowser) {
+  description (URL, tel을 이용하여 app-launch를 실행하는 action)
+  type(Constructor)
+  collect {
+    input (homePage) {
+      type (HomePage)
+      min (Optional) max (One)
+    }
+    input (tel) {
+      type (Tel)
+      min (Optional) max (One)
+    }
+  }
+  output (URL)
+}

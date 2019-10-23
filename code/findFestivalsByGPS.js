@@ -10,9 +10,9 @@ var options = {
 var console = require('console');
 var config = require('config')
 
-module.exports.function = function findFestivalsByGPS (point) {
+module.exports.function = function findFestivalsByGPS(point) {
   let pageNo = 1;
-  
+
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
@@ -29,11 +29,11 @@ module.exports.function = function findFestivalsByGPS (point) {
   let festivalList = {};
   let festivals = [];
 
-  if(totalCount != 0) {
+  if (totalCount != 0) {
     let loopNum = response.items.item.length;
     let item = null;
-    
-    if(loopNum == undefined) {
+
+    if (loopNum == undefined) {
       item = response.items.item;
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
@@ -46,7 +46,7 @@ module.exports.function = function findFestivalsByGPS (point) {
         "outputLocation": item.addr1.substring(0, pos)
       });
     } else {
-      for(let i = 0; i < loopNum; i++) {
+      for (let i = 0; i < loopNum; i++) {
         item = response.items.item[i];
         let pos = item.addr1.indexOf(' ');
         pos = item.addr1.indexOf(' ', pos + 1);
@@ -65,7 +65,7 @@ module.exports.function = function findFestivalsByGPS (point) {
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['gpsFestivals'] = festivals;
-  
+
   console.log(festivalList);
 
   return festivalList;

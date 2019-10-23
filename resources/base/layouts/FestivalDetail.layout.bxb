@@ -10,7 +10,7 @@ layout-macro-def (festival-detail) {
     section {
       content {
         image-carousel {
-          images (festivalDetail.imgUrl) // 미완
+          images (festivalDetail.images) // 미완
         }
         title-area {
           halign (Center)

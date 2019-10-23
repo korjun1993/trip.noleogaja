@@ -1,4 +1,4 @@
-structure (ImgUrl) {
+structure (Image) {
   description (__DESCRIPTION__)
   extends (core.BaseImage)
 }
