@@ -1,4 +1,4 @@
-vocab(LocationGroup){
+vocab(LocationError){
   "중구"
   "동구"
   "서구"

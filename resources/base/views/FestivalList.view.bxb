@@ -14,17 +14,32 @@ result-view{
       template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
     }
   }
-
+  
   render{
-    list-of (this.festivals){
-      where-each (item){
-        layout-macro (festival-result) {
-          param (festivals) {
-            expression(item)
+    layout{
+      section{
+        content{
+          for-each (this.festivals){
+            as (item){
+              layout-macro (festival-result){
+                param (festivals){
+                  expression (item)
+                }
+              }
+            }
           }
         }
       }
     }
+    // list-of (this.festivals){
+    //   where-each (item){
+    //     layout-macro (festival-result) {
+    //       param (festivals) {
+    //         expression(item)
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   conversation-drivers{

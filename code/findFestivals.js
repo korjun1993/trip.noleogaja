@@ -1,5 +1,3 @@
-var baseURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
-var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
 var options = {
   format: 'json',
@@ -8,20 +6,20 @@ var options = {
   },
 };
 
-var console = require('console')
-var dates = require("dates")
+var console = require('console');
+var config = require('config');
+var secret = require('secret');
+var dates = require("dates");
 
-const getAreaCode = require('lib/getAreaCode.js')
-const getDate = require('lib/getDate.js')
+const getAreaCode = require('lib/getAreaCode.js');
+const getDate = require('lib/getDate.js');
+
+var key = secret.get('key');
 
 module.exports.function = function findFestivals (location, date, dateInterval) {
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let festivalList = {};
-
-  console.log(location);
-  console.log(date);
-  console.log(dateInterval);
 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
@@ -94,8 +92,13 @@ module.exports.function = function findFestivals (location, date, dateInterval) 
   }
 
   //API 요청
+<<<<<<< HEAD
   let response = http.getUrl(baseURL + queryParams, options);
   let totalCount = response.response.body.totalCount;
+=======
+  let response = http.getUrl(config.get('searchFestival.url') + queryParams, options).response.body;
+  let totalCount = response.totalCount;
+>>>>>>> 2d1e9023f68ff8b47b8a954e26a7707b87b14c7b
   let festivals = [];
 
   if(totalCount != 0) {

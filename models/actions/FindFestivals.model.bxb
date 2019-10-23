@@ -58,7 +58,7 @@ action (FindFestivals) {
       type(DateInterval)
       min (Optional) max (Many)
     }
-
   }
-  output (FestivalList)
+  output (FestivalList){
+  }
 }

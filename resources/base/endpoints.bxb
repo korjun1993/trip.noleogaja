@@ -16,7 +16,7 @@ endpoints {
     }
     
     action-endpoint (SelectShowDetail) {
-      accepted-inputs (contentId)
+      accepted-inputs (festivals)
       local-endpoint (selectShowDetail.js)
     }
 

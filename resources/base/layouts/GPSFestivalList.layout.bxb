@@ -1,7 +1,7 @@
-layout-macro-def (festival-result) {
+layout-macro-def (gpsFestival-result) {
   params {
-    param (festivals) {
-      type (Festivals)
+    param (gpsFestivals) {
+      type (GPSFestivals)
       min (Required) max (One)
     }
   }
@@ -9,24 +9,24 @@ layout-macro-def (festival-result) {
   content {
     image-card {
       aspect-ratio (21:9)
-      image-url("[#{value(festivals.firstImage)}]")
+      image-url("[#{value(gpsFestivals.firstImage)}]")
       title-area {
         halign (Start)
         slot1{
             text{
-              value("[#{value(festivals.outputLocation)}]")
+              value("[#{value(gpsFestivals.outputLocation)}]")
               style(Detail_M)
             }
         }
         slot2{
           paragraph{
-            value("[#{value(festivals.eventStartDate)}] ~ [#{value(festivals.eventEndDate)}]")
+            value("[#{value(gpsFestivals.dist)}]")
             style(Detail_M)
           }
         }
         slot3 {
           paragraph {
-            value("[#{value(festivals.title)}]")
+            value("[#{value(gpsFestivals.title)}]")
             style(Title_M)
           }
         }
