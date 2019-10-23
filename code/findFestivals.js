@@ -1,4 +1,3 @@
-var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
 var options = {
   format: 'json',
@@ -7,12 +6,15 @@ var options = {
   },
 };
 
-var console = require('console')
-var config = require('config')
-var dates = require("dates")
+var console = require('console');
+var config = require('config');
+var secret = require('secret');
+var dates = require("dates");
 
-const getAreaCode = require('lib/getAreaCode.js')
-const getDate = require('lib/getDate.js')
+const getAreaCode = require('lib/getAreaCode.js');
+const getDate = require('lib/getDate.js');
+
+var key = secret.get('key');
 
 module.exports.function = function findFestivals (location, dateTimeExpression) {
   let pageNo = 1;
