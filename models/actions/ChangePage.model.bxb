@@ -1,0 +1,27 @@
+action (ChangePage) {
+	description (페이지 이동)
+	type(Calculation)
+	collect {
+		input(festivalList){
+			type(FestivalList)
+			min (Required) max(One)
+		}
+    input (location) {
+      type (Location)
+      min (Optional) max (One)
+    }
+    input (date){
+      type(Date)
+      min (Optional) max (Many)
+    }
+    input (dateInterval){
+      type(DateInterval)
+      min (Optional) max (Many)
+    }
+		input (pageChange) {
+			type (PageChange)
+			min (Required) max (One)
+		}
+	}
+	output (FestivalList)
+}

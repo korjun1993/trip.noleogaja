@@ -24,6 +24,11 @@ endpoints {
       accepted-inputs (homePage, tel)
       local-endpoint (openBrowser.js)
     }
+    
+    action-endpoint (ChangePage) {
+      accepted-inputs (festivalList, location, date, dateInterval, pageChange)
+      local-endpoint (changePage.js)
+    }
   }
 }
 

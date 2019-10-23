@@ -30,7 +30,6 @@ layout-macro-def (gpsFestival-result) {
             style(Title_M)
           }
         }
-        
       }
       // on-click{
       //   intent{

@@ -15,6 +15,5 @@ action (FindFestivals) {
       min (Optional) max (Many)
     }
   }
-  output (FestivalList){
-  }
+  output (FestivalList)
 }

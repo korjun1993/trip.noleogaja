@@ -1,0 +1,5 @@
+enum (PageChange) {
+  description (페이지 변경)
+  symbol (다음)
+  symbol (이전)
+}
