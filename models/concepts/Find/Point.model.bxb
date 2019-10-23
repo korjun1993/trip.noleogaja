@@ -1,0 +1,4 @@
+structure (Point) {
+  description (위도, 경도를 저장하는 geo 캡슐의 NamedPoint)
+  role-of (geo.NamedPoint)
+}

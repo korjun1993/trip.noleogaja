@@ -1,10 +1,5 @@
 endpoints {
   action-endpoints {
-    // action-endpoint (FindFestivals) {
-    //   accepted-inputs (location, dateTimeExpression)
-    //   local-endpoint (findFestivals.js)
-    // }
-    
     action-endpoint (FindFestivals) {
       accepted-inputs (location, date, dateInterval)
       local-endpoint (findFestivals.js)
@@ -21,7 +16,7 @@ endpoints {
     }
 
     action-endpoint (FindFestivalsByGPS) {
-      accepted-inputs (point)
+      accepted-inputs (near, point)
       local-endpoint (findFestivalsByGPS.js)
     }
   }
