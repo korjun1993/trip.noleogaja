@@ -9,6 +9,9 @@ result-view{
 		layout{
 			section{
 				content{
+					image-carousel {
+						images (this.images)
+					}
 					title-area {
 						halign (Center)
 						slot1 {
@@ -20,18 +23,15 @@ result-view{
 						slot2{
 							paragraph{
 								value("#{value(this.addr1)}")
-								style(Title_S)
+								style(Title_XS)
 							}
 						}
 						slot3{
 							paragraph{
 								value("#{value(this.eventStartDate)} ~ #{value(this.eventEndDate)}")
-								style(Title_S)
+								style(Title_XS)
 							}
 						}
-					}
-					image-list{
-						images (this.imgUrl)
 					}
 				}
 			}
@@ -49,7 +49,7 @@ result-view{
 					spacer
 					if(this.playTime != ' '){
 						paragraph{
-							value("행사 기간")
+							value("행사 시간")
 							style(Legal)
 						}
 						paragraph{
@@ -112,8 +112,20 @@ result-view{
 							value("홈페이지")
 							style(Legal)
 						}
-						paragraph{
-							value("#{value(this.homePage)}")
+						cell-card{
+							slot2{
+								content{
+									primary{
+										template ("#{value(this.homePage)}")
+									}
+								}
+							}
+							on-click{
+								intent{
+									goal: OpenBrowser
+									value: $expr(this.homePage)
+								}
+							}
 						}
 					}
 					spacer
@@ -122,8 +134,20 @@ result-view{
 							value("문의")
 							style(Legal)
 						}
-						paragraph{
-							value("#{value(this.telName)} : #{value(this.tel)}")
+						cell-card{
+							slot2{
+								content{
+									primary{
+										template ("#{value(this.telName)} : #{value(this.tel)}")
+									}
+								}
+							}
+							on-click{
+								intent{
+									goal: OpenBrowser
+									value: $expr(this.tel)
+								}
+							}
 						}
 					}
 				}
