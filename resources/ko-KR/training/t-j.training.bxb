@@ -1,5 +1,0 @@
-train (t-jabr7i4geh45b6sa9w9xbpsck) {
-  utterance ("[g:FestivalList] {[g:Date] (글피)[v:time.Date]} (대구)[v:Location:대구광역시-전체] 행사 알려줘")
-  plan (XYo9CoAwFIOj1dHJwUHP0FOIk5d4aJEn2op99PzWv6WBkJB8KNHKyYe2bjNuoZX0YLxwoG1kL+jSk+38Ax518vYkBk0yjm4iYWdRBQ5aeDcvVyBDDhUTsd09w63is4rLw1w=)
-  last-modified (1571793122460)
-}
