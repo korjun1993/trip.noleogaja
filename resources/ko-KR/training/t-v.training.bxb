@@ -1,0 +1,5 @@
+train (t-vzvcis14af0etm78wuygg7g0u) {
+  utterance ("[g:FestivalList] {[g:DateInterval] (11월)[v:time.DateInterval]} 행사 알려줘")
+  plan (Y2BhkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKSjG0OqSWJLqmVeSWgSUZRAtyyzTK8nMTUUVZmZgZGACkgxgmhFIswAxiM8EkQMA)
+  last-modified (1571793206585)
+}

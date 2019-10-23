@@ -1,6 +1,5 @@
-
 train (t-f81lbaeaz30qv8vzmpfjmd3xj) {
   utterance ("[g:GPSFestivalList] (내 근처)[v:geo.CurrentLocation]에서 찾아줘")
   plan (Y2BmkCspyizQy8vPSc1PT8xK1HMPCHZLLS7JLEvM8cksLmFQRJN3y8xLgSkodqoEKmcQL8ss00tPzddzLi0qSs0r8clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
-  last-modified (1571642542933)
+  last-modified (1571791551218)
 }

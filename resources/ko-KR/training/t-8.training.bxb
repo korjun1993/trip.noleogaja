@@ -1,10 +1,10 @@
 train (t-8lbygh9ngkunnlkokh49rc8m6) {
-  utterance ("[g:FestivalList] (모레)[v:time.DateTimeExpression] 행사")
-  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmkC7LLNMrycxN1XNJLEkNATJcKwqKUouLM/PzGJgYGIGYAUgyMoAAEwQDAA==)
-  last-modified (1571645337375)
+  utterance ("[g:FestivalList] {[g:Date] (모레)[v:time.Date]} 행사")
+  plan (Y2BhkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEaTdUksSWXgLcss0yvJzE2FcJkZGBmYgCQDmGYE0ixADOIzQeQA)
+  last-modified (1571791490510)
 }
 train (t-8uj802g9xbsa29aem8fpl1wtq) {
   utterance ("[g:FestivalList] (대구)[v:Location:대구광역시-전체]에 뭐 있노")
   plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
-  last-modified (1571376739676)
+  last-modified (1571704591978)
 }

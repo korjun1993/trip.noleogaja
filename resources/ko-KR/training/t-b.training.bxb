@@ -1,0 +1,5 @@
+train (t-bhk28ueivu3dhjvk8bcq24xdj) {
+  utterance ("[g:FestivalList] (서울)[v:Location:서울특별시-전체] 축제 알려줘")
+  plan (Y2BmkC4pyizQy8vPSc1PT8xK1HNLLS7JLEvM8cksLmGQQZfMzEuBKShmEEeT9clPTizJzM9jYGJgBGIGIMnIAAJMEAwA)
+  last-modified (1571722084927)
+}
