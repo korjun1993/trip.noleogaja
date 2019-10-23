@@ -1,6 +1,3 @@
-var datailCommonURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon';
-var detailImageURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage';
-var detailIntroURL = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro';
 var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
 var options = {
@@ -11,6 +8,7 @@ var options = {
 };
 
 var console = require('console')
+var config = require('config')
 
 module.exports.function = function selectShowDetail (festivals) {
   let contentId = festivals.contentId;
@@ -19,11 +17,10 @@ module.exports.function = function selectShowDetail (festivals) {
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
   queryParams += '&' + encodeURIComponent('contentId') + '=' + encodeURIComponent(contentId);
   queryParams += '&' + encodeURIComponent('contentTypeId') + '=' + encodeURIComponent('15');
-  commonEndQuery = "&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y";
-  
-  let commonResponse = http.getUrl(datailCommonURL + queryParams + commonEndQuery, options).response.body.items.item;
-  let imageResponse = http.getUrl(detailImageURL + queryParams, options).response.body;
-  let introResponse = http.getUrl(detailIntroURL + queryParams, options).response.body.items.item;
+
+  let commonResponse = http.getUrl(config.get('detailCommon.url') + queryParams + config.get('commonEndQuery'), options).response.body.items.item;
+  let imageResponse = http.getUrl(config.get('detailImage.url') + queryParams, options).response.body;
+  let introResponse = http.getUrl(config.get('detailIntro.url') + queryParams, options).response.body.items.item;
   let detail = {};
   let images = [];
 

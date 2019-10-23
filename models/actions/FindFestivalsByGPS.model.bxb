@@ -1,4 +1,5 @@
 action (FindFestivalsByGPS) {
+  type(Search)
   description (GPS 기반으로 축제 찾기)
   collect {
     input (point) {
