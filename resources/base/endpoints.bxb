@@ -19,6 +19,11 @@ endpoints {
       accepted-inputs (near, point)
       local-endpoint (findFestivalsByGPS.js)
     }
+
+    action-endpoint (OpenBrowser) {
+      accepted-inputs (homePage, tel)
+      local-endpoint (openBrowser.js)
+    }
   }
 }
 

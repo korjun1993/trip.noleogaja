@@ -14,9 +14,6 @@ structure (ShowDetail) {
   property (homePage){
     type(HomePage)
   }
-  property (overView){
-    type(OverView)
-  }
   property (tel){
     type(Tel)
   }
@@ -26,8 +23,8 @@ structure (ShowDetail) {
   property (title){
     type(Title)
   }
-  property (imgUrl){
-    type(ImgUrl)
+  property (images){
+    type(Image)
     max (Many)
   }
   property (ageLimit){

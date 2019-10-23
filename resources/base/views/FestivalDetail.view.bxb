@@ -1,11 +1,157 @@
 result-view{
-  match : ShowDetail(this)
-
-  render{
-    layout-macro (festival-detail){
-      param (festivalDetail){
-        expression (this)
-      } 
-    }
-  }
+	match : ShowDetail(this)
+	
+	message{
+		template ("")
+	}
+	
+	render{
+		layout{
+			section{
+				content{
+					image-carousel {
+						images (this.images)
+					}
+					title-area {
+						halign (Center)
+						slot1 {
+							text {
+								value ("#{value(this.title)}")
+								style (Title_L)
+							}
+						}
+						slot2{
+							paragraph{
+								value("#{value(this.addr1)}")
+								style(Title_XS)
+							}
+						}
+						slot3{
+							paragraph{
+								value("#{value(this.eventStartDate)} ~ #{value(this.eventEndDate)}")
+								style(Title_XS)
+							}
+						}
+					}
+				}
+			}
+			section{
+				content{
+					if (this.eventPlace != ' '){
+						paragraph{
+							value("행사 장소")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.eventPlace)}")
+						}
+					}
+					spacer
+					if(this.playTime != ' '){
+						paragraph{
+							value("행사 시간")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.playTime)}")
+						}
+					}
+					spacer
+					if(this.ageLimit != ' '){
+						paragraph{
+							value("연령 제한")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.ageLimit)}")
+						}
+					}
+					spacer
+					if(this.useTimeFestival != ' '){
+						paragraph{
+							value("요금 정보")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.useTimeFestival)}")
+						}
+					}
+					spacer
+					if(this.discountInfoFestival != ' '){
+						paragraph{
+							value("할인 정보")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.discountInfoFestival)}")
+						}
+					}
+					spacer
+					if(this.placeInfo != ' '){
+						paragraph{
+							value("오시는 길")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.placeInfo)}")
+						}
+					}
+					spacer
+					if (this.subEvent != ' '){
+						paragraph{
+							value("세부 이벤트")
+							style(Legal)
+						}
+						paragraph{
+							value("#{value(this.subEvent)}")
+						}
+					}
+					spacer
+					if(this.homePage != ' '){
+						paragraph{
+							value("홈페이지")
+							style(Legal)
+						}
+						cell-card{
+							slot2{
+								content{
+									primary{
+										template ("#{value(this.homePage)}")
+									}
+								}
+							}
+							on-click{
+								intent{
+									goal: OpenBrowser
+									value: $expr(this.homePage)
+								}
+							}
+						}
+					}
+					spacer
+					if(this.telName != ' ' && this.tel != ' '){
+						paragraph{
+							value("문의")
+							style(Legal)
+						}
+						cell-card{
+							slot2{
+								content{
+									primary{
+										template ("#{value(this.telName)} : #{value(this.tel)}")
+									}
+								}
+							}
+							on-click{
+								intent{
+									goal: OpenBrowser
+									value: $expr(this.tel)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
