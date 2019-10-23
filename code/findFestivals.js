@@ -92,13 +92,9 @@ module.exports.function = function findFestivals (location, date, dateInterval) 
   }
 
   //API 요청
-<<<<<<< HEAD
-  let response = http.getUrl(baseURL + queryParams, options);
-  let totalCount = response.response.body.totalCount;
-=======
   let response = http.getUrl(config.get('searchFestival.url') + queryParams, options).response.body;
   let totalCount = response.totalCount;
->>>>>>> 2d1e9023f68ff8b47b8a954e26a7707b87b14c7b
+
   let festivals = [];
 
   if(totalCount != 0) {

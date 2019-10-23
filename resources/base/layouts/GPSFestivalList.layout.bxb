@@ -32,18 +32,18 @@ layout-macro-def (gpsFestival-result) {
         }
         
       }
-      on-click{
-        intent{
-          goal: ShowDetail
-          value: Festivals{
-            contentId : $expr(festivals.contentId)
-            eventStartDate : $expr(festivals.eventStartDate)
-            eventEndDate : $expr(festivals.eventEndDate)
-            title : $expr(festivals.title)
-            outputLocation : $expr(festivals.outputLocation)
-          }
-        }
-      }
+      // on-click{
+      //   intent{
+      //     goal: ShowDetail
+      //     value: Festivals{
+      //       contentId : $expr(festivals.contentId)
+      //       eventStartDate : $expr(festivals.eventStartDate)
+      //       eventEndDate : $expr(festivals.eventEndDate)
+      //       title : $expr(festivals.title)
+      //       outputLocation : $expr(festivals.outputLocation)
+      //     }
+      //   }
+      // }
     }
   }
 }
