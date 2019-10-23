@@ -12,7 +12,7 @@ var secret = require('secret');
 
 var key = secret.get('key');
 
-module.exports.function = function findFestivalsByGPS (point) {
+module.exports.function = function findFestivalsByGPS (near, point) {
   let pageNo = 1;
   
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
@@ -21,8 +21,8 @@ module.exports.function = function findFestivalsByGPS (point) {
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('E');
   queryParams += '&' + encodeURIComponent('contentTypeId') + '=' + encodeURIComponent('15');
-  queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent(point.longitude);
-  queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(point.latitude);
+  queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent(point.point.longitude);
+  queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(point.point.latitude);
   queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent('20000');
 
   let response = http.getUrl(config.get('locationBasedList.url') + queryParams, options).response.body;

@@ -98,11 +98,11 @@ module.exports.function = function findFestivals (location, date, dateInterval) 
   let festivals = [];
 
   if(totalCount != 0) {
-    let loopNum = response.response.body.items.item.length;
+    let loopNum = response.items.item.length;
     let item = null;
     
     if(loopNum == undefined) {
-      item = response.response.body.items.item;
+      item = response.items.item;
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
 
@@ -116,7 +116,7 @@ module.exports.function = function findFestivals (location, date, dateInterval) 
       });
     } else {
       for(let i = 0; i < loopNum; i++) {
-        item = response.response.body.items.item[i];
+        item = response.items.item[i];
         let pos = item.addr1.indexOf(' ');
         pos = item.addr1.indexOf(' ', pos + 1);
 

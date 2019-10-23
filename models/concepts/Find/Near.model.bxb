@@ -1,0 +1,4 @@
+enum (Near){
+  description (GPS 검색 시 사용)
+  symbol (Nearby)
+}

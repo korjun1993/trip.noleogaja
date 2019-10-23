@@ -2,9 +2,22 @@ action (FindFestivalsByGPS) {
   type(Search)
   description (GPS 기반으로 축제 찾기)
   collect {
-    input (point) {
-      type (geo.CurrentLocation)
+    input (near) {
+      type (Near)
       min (Required) max (One)
+    }
+
+    computed-input (point){
+      type (Point)
+      min (Optional) max (One)
+      compute{
+        if(exists(near)){
+          intent{
+            goal: Point
+            route: geo.CurrentLocation
+          }
+        }
+      }
     }
   }
   output (GPSFestivalList)
