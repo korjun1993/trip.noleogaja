@@ -3,11 +3,60 @@ action (FindFestivals) {
   collect {
     input (location) {
       type (Location)
+      min (Optional) max (One)
+    }
+          // default-init {
+          //   if ($user.currentLocation.$exists) {
+          //     intent {
+          //       goal: geo.SearchRegion
+          //       value-set: geo.CurrentLocation { $expr ($user.currentLocation) }
+          //     }
+          //   }
+          // }
+        //  computed-input (point){
+    //   type (Point)
+    //   min (Optional) max (One)
+    //   compute{
+    //     if(exists(near)){
+    //       // 사용자의 위치를 가져오기 위해서는 동의가 필요
+    //       // capsule.bxb의 'user-profile-access' 등록
+    //       // 참조 (https://bixbydevelopers.com/dev/docs/reference/type/capsule.permissions)
+    //       intent{
+    //         goal: Point
+    //         route: geo.CurrentLocation
+    //       }         
+    //     }
+    //   }
+    // }
+    // computed-input (date) {
+    //   type (Date)
+    //   min (Optional) max (Many)
+    //   compute{
+    //     intent{
+    //       goal: Date
+    //       route: time.Date
+    //     }
+    //   }
+    // }
+ 
+    // computed-input (dateInterval) {
+    //   type (DateInterval)
+    //   min (Optional) max (Many)
+    //   compute{
+    //     intent{
+    //       goal: DateInterval
+    //       route: time.DateInterval
+    //     }
+    //   }
+    // }
+    input (date){
+      type(Date)
+      min (Optional) max (Many)
     }
 
-    input (dateTimeExpression) {
-          type (time.DateTimeExpression)
-          min (Optional) max (Many)
+    input (dateInterval){
+      type(DateInterval)
+      min (Optional) max (Many)
     }
   }
   output (FestivalList){

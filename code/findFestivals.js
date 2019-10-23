@@ -16,7 +16,7 @@ const getDate = require('lib/getDate.js');
 
 var key = secret.get('key');
 
-module.exports.function = function findFestivals (location, dateTimeExpression) {
+module.exports.function = function findFestivals (location, date, dateInterval) {
   let pageNo = 1;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let festivalList = {};
@@ -24,7 +24,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
-  queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
+  queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest');
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P');
   
   if(location != undefined) {
@@ -34,7 +34,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     let returnName = location.substring(0, pos);
     
     if(subLocName != "전체") {
-      returnName += " " + subLocName;
+      returnName += subLocName;
     }
 
     festivalList['inputLocation'] = returnName;
@@ -50,10 +50,17 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     festivalList['inputLocation'] = ' ';
   }
 
-  if(dateTimeExpression.length != 0) {
-    let when = getDate.getDate(dateTimeExpression[0])
-    
+  if(date.length != 0 || dateInterval.length != 0) {
+   
+    if(date.length != 0){
+      let when = getDate.getDate(date[0])
+    }else if(dateInterval.length != 0){
+      let when = getDate.getDate(dateInterval[0])
+    }
+    console.log("@@@@@@@@")
+    console.log(when)
     festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
+    
     if(when.endDate == null) {
       festivalList['inputEndDate'] = ' ';
     } else {
@@ -66,7 +73,6 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
     } else {
       queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.startDate);
     }
-    console.log(queryParams);
   } else {
     let tday = new Date();
     let year = tday.getFullYear();
@@ -86,16 +92,21 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
   }
 
   //API 요청
+<<<<<<< HEAD
+  let response = http.getUrl(baseURL + queryParams, options);
+  let totalCount = response.response.body.totalCount;
+=======
   let response = http.getUrl(config.get('searchFestival.url') + queryParams, options).response.body;
   let totalCount = response.totalCount;
+>>>>>>> 2d1e9023f68ff8b47b8a954e26a7707b87b14c7b
   let festivals = [];
 
   if(totalCount != 0) {
-    let loopNum = response.items.item.length;
+    let loopNum = response.response.body.items.item.length;
     let item = null;
     
     if(loopNum == undefined) {
-      item = response.items.item;
+      item = response.response.body.items.item;
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
 
@@ -109,7 +120,7 @@ module.exports.function = function findFestivals (location, dateTimeExpression) 
       });
     } else {
       for(let i = 0; i < loopNum; i++) {
-        item = response.items.item[i];
+        item = response.response.body.items.item[i];
         let pos = item.addr1.indexOf(' ');
         pos = item.addr1.indexOf(' ', pos + 1);
 
