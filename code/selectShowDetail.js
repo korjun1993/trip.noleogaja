@@ -1,4 +1,3 @@
-var key = 'durJHB4Hx8wuHRX6IU2cY1TW%2BbXLOTxyoLSYFV4FQmx4MzmDWvrKzFzwPtUqD3Bjte974mth8StXqjseFlCR7A%3D%3D';
 var http = require('http');
 var options = {
   format: 'json',
@@ -7,8 +6,11 @@ var options = {
   },
 };
 
-var console = require('console')
-var config = require('config')
+var console = require('console');
+var config = require('config');
+var secret = require('secret');
+
+var key = secret.get('key');
 
 module.exports.function = function selectShowDetail (festivals) {
   let contentId = festivals.contentId;
@@ -61,6 +63,8 @@ module.exports.function = function selectShowDetail (festivals) {
   detail['placeInfo'] = introResponse.placeinfo ? introResponse.placeinfo : " ";
   detail['playTime'] = introResponse.playtime ? introResponse.playtime : " ";
   detail['subEvent'] = introResponse.subevent ? introResponse.subevent : " ";
+
+  console.log(detail);
 
   return detail;
 }
