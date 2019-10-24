@@ -35,13 +35,7 @@ layout-macro-def (festival-result) {
       on-click{
         intent{
           goal: ShowDetail
-          value: Festivals{
-            contentId : $expr(festivals.contentId)
-            eventStartDate : $expr(festivals.eventStartDate)
-            eventEndDate : $expr(festivals.eventEndDate)
-            title : $expr(festivals.title)
-            outputLocation : $expr(festivals.outputLocation)
-          }
+          value: $expr(festivals.contentId)
         }
       }
     }

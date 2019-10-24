@@ -8,6 +8,12 @@ layout-macro-def (gpsFestival-result) {
 
   content {
     image-card {
+      on-click{
+        intent{
+          goal: ShowDetail
+          value: $expr(gpsFestivals.contentId)
+        }
+      }
       aspect-ratio (21:9)
       image-url("[#{value(gpsFestivals.firstImage)}]")
       title-area {
