@@ -2,10 +2,19 @@ result-view{
   match : GPSFestivalList(this)
 
   message{
+
+
+    
+
     if(this.totalCount == 0){
-      template ("검색된 결과가 없습니다.")
+      template ("주변에 행사가 없어요.")
+      template ("근처에 진행중인 축제가 없네요.")
     }else{
-      template ("검색결과는 #{value(this.totalCount)}개 입니다.")
+      choose (Random) {
+        template ("근처 검색 결과, #{value(this.totalCount)}개가 있어요")
+        template ("주변에 #{value(this.totalCount)}개의 행사가 진행중이에요!")
+        template ("#{value(this.totalCount)}개 중 어디로 가시겠어요??")
+    }
     }
   }
   
