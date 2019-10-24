@@ -1,0 +1,3 @@
+integer (TotalCount) {
+  description (총 검색 개수)
+}

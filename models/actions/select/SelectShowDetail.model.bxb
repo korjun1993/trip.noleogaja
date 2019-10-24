@@ -1,0 +1,11 @@
+action (SelectShowDetail) {
+  description (상세 보기)
+  type(Fetch)
+  collect {
+    input (contentId) {
+      type (ContentId)
+      min (Required) max (One)
+    }
+  }
+  output (ShowDetail)
+}

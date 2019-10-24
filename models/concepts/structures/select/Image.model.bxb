@@ -1,0 +1,4 @@
+structure (Image) {
+  description (이미지 정보)
+  extends (core.BaseImage)
+}

@@ -1,0 +1,32 @@
+structure (Festivals) {
+  description (축제)
+  property (contentId) {
+    min (Required)
+    type (ContentId)
+  }
+
+  property (title) {
+    min (Required)
+    type (Title)
+  }
+
+  property (eventStartDate) {
+    min (Required)
+    type (EventStartDate)
+  }
+
+  property (eventEndDate) {
+    min (Required)
+    type (EventEndDate)
+  }
+
+  property (firstImage) {
+    min (Optional)
+    type (FirstImage)
+  }
+
+  property (outputLocation) {
+    min (Required)
+    type (OutputLocation)
+  }
+}

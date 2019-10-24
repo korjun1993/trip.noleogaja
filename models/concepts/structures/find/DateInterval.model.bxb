@@ -1,0 +1,5 @@
+structure (DateInterval) {
+	description (특정기간)
+	role-of (time.DateInterval)
+	features{transient}
+}

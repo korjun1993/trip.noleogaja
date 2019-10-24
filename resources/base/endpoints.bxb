@@ -1,33 +1,33 @@
 endpoints {
   action-endpoints {
     action-endpoint (FindFestivals) {
-      accepted-inputs (location, date, dateInterval)
-      local-endpoint (findFestivals.js)
+      accepted-inputs (location, date, dateInterval, pageNo)
+      local-endpoint (find/findFestivals.js)
     }
 
     action-endpoint (GetLocation) {
       accepted-inputs (locationError)
-      local-endpoint (getLocation.js)
+      local-endpoint (base/getLocation.js)
     }
     
     action-endpoint (SelectShowDetail) {
       accepted-inputs (contentId)
-      local-endpoint (selectShowDetail.js)
+      local-endpoint (select/selectShowDetail.js)
     }
 
     action-endpoint (FindFestivalsByGPS) {
       accepted-inputs (near, point)
-      local-endpoint (findFestivalsByGPS.js)
+      local-endpoint (find/findFestivalsByGPS.js)
     }
 
     action-endpoint (OpenBrowser) {
       accepted-inputs (homePage, tel)
-      local-endpoint (openBrowser.js)
+      local-endpoint (base/openBrowser.js)
     }
     
     action-endpoint (ChangePage) {
       accepted-inputs (festivalList, location, date, dateInterval, pageChange)
-      local-endpoint (changePage.js)
+      local-endpoint (base/changePage.js)
     }
   }
 }
