@@ -7,7 +7,7 @@ module.exports.function = function changePage (festivalList, location, date, dat
   var totalCount = festivalList.totalCount;
   var pageNo = festivalList.pageNo;
   var remain = totalCount % numOfRows;
-  var devide = totalCount / numOfRows;
+  var devide = Math.floor(totalCount / numOfRows);
   var pageLength = remain > 0 ? devide + 1 : devide;
 
   if(pageChange == '다음' && pageNo < pageLength){
