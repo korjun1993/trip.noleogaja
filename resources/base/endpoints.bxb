@@ -7,7 +7,7 @@ endpoints {
 
     action-endpoint (GetLocation) {
       accepted-inputs (locationError)
-      local-endpoint (base/getLocation.js)
+      local-endpoint (lib/getLocation.js)
     }
     
     action-endpoint (SelectShowDetail) {
@@ -22,12 +22,12 @@ endpoints {
 
     action-endpoint (OpenBrowser) {
       accepted-inputs (homePage, tel)
-      local-endpoint (base/openBrowser.js)
+      local-endpoint (lib/openBrowser.js)
     }
     
     action-endpoint (ChangePage) {
       accepted-inputs (festivalList, location, date, dateInterval, pageChange)
-      local-endpoint (base/changePage.js)
+      local-endpoint (lib/changePage.js)
     }
   }
 }
