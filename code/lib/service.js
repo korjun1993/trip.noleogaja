@@ -62,11 +62,9 @@ function findFestivals (location, date, dateInterval, pageNo) {
     }else if(dateInterval.length != 0){
       let when = getDate.getDate(dateInterval[0])
     }
-    console.log("@@@@@@@@")
-    console.log(when)
     festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
     
-    if(when.endDate == null) {
+    if(when.endDate == when.startDate) {
       festivalList['inputEndDate'] = ' ';
     } else {
       festivalList['inputEndDate'] =  when.endDate.substring(0, 4) + "년 " + when.endDate.substring(4, 6) + "월 " + when.endDate.substring(6, 8) + "일";
