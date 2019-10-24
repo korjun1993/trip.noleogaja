@@ -11,13 +11,18 @@ structure (Festivals) {
   }
 
   property (eventStartDate) {
-    min (Required)
+    min (Optional)
     type (EventStartDate)
   }
 
   property (eventEndDate) {
-    min (Required)
+    min (Optional)
     type (EventEndDate)
+  }
+
+  property (dist) {
+    min (Optional)
+    type (Dist)
   }
 
   property (firstImage) {
