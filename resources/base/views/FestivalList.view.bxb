@@ -45,7 +45,11 @@ result-view{
 
   conversation-drivers{
     conversation-driver{
-      template ("태그 test")
+      template ("다음")
+    }
+
+    conversation-driver{
+      template ("이전")
     }
   }
 }
