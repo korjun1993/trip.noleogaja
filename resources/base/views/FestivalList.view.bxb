@@ -2,8 +2,6 @@ result-view{
   match : FestivalList(this)
 
   message{
-
-    // template ("낄끼리낄ㄲ")
     if(this.totalCount == 0){
       template ("검색된 결과가 없습니다.")
       template ("주변에 행사가 없어요.")
@@ -40,15 +38,6 @@ result-view{
         }
       }
     }
-    // list-of (this.festivals){
-    //   where-each (item){
-    //     layout-macro (festival-result) {
-    //       param (festivals) {
-    //         expression(item)
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   conversation-drivers{
