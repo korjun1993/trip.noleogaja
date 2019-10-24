@@ -1,0 +1,24 @@
+action (FindFestivals) {
+  type(Search)
+  collect {
+    input (location) {
+      type (Location)
+      min (Optional) max (One)
+    }
+    input (date){
+      type(Date)
+      min (Optional) max (Many)
+    }
+
+    input (dateInterval){
+      type(DateInterval)
+      min (Optional) max (Many)
+    }
+
+    input (pageNo) {
+      type (PageNo)
+      min (Optional) max (One)
+    }
+  }
+  output (FestivalList)
+}

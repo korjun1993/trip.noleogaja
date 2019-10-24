@@ -25,15 +25,6 @@ result-view{
         }
       }
     }
-    // list-of (this.festivals){
-    //   where-each (item){
-    //     layout-macro (festival-result) {
-    //       param (festivals) {
-    //         expression(item)
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   conversation-drivers{

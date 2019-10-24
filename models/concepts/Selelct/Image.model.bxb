@@ -1,4 +1,0 @@
-structure (Image) {
-  description (__DESCRIPTION__)
-  extends (core.BaseImage)
-}
