@@ -19,8 +19,9 @@ layout-macro-def (festival-result) {
             }
         }
         slot2{
-          paragraph{
-            value("[#{value(festivals.eventStartDate)}] ~ [#{value(festivals.eventEndDate)}]")
+
+            paragraph{
+            value("[#{value(festivals.eventStartDate)}] ~ [#{value(festivals.eventEndDate)}][#{value(festivals.dist)}]")
             style(Detail_M)
           }
         }

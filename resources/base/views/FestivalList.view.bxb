@@ -2,6 +2,8 @@ result-view{
   match : FestivalList(this)
 
   message{
+
+    // template ("낄끼리낄ㄲ")
     if(this.totalCount == 0){
       template ("검색된 결과가 없습니다.")
       template ("주변에 행사가 없어요.")
@@ -13,7 +15,13 @@ result-view{
       template ("#{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개 입니다.")
     }else-if(this.inputStartDate != ' '){
       template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개 입니다.")
+    }else{
+      choose (Random) {
+        template ("근처 검색 결과, #{value(this.totalCount)}개가 있어요")
+        template ("주변에 #{value(this.totalCount)}개의 행사가 진행중이에요!")
+        template ("#{value(this.totalCount)}개 중 어디로 가시겠어요?")
     }
+  }
   }
   
   render{

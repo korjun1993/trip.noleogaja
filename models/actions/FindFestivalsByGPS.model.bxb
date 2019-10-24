@@ -20,5 +20,5 @@ action (FindFestivalsByGPS) {
       }
     }
   }
-  output (GPSFestivalList)
+  output (FestivalList)
 }

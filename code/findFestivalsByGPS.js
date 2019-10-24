@@ -30,6 +30,10 @@ module.exports.function = function findFestivalsByGPS (near, point) {
   let festivalList = {};
   let festivals = [];
 
+  festivalList['inputLocation'] = ' ';
+  festivalList['inputStartDate'] = ' ';
+  festivalList['inputEndDate'] = ' ';
+
   if (totalCount != 0) {
     let loopNum = response.items.item.length;
     let item = null;
@@ -65,7 +69,7 @@ module.exports.function = function findFestivalsByGPS (near, point) {
 
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
-  festivalList['gpsFestivals'] = festivals;
+  festivalList['festivals'] = festivals;
 
   console.log(festivalList);
 
