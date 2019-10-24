@@ -2,8 +2,8 @@ action (SelectShowDetail) {
   description (__DESCRIPTION__)
   type(Fetch)
   collect {
-    input (festivals) {
-      type (Festivals)
+    input (contentId) {
+      type (ContentId)
       min (Required) max (One)
     }
   }

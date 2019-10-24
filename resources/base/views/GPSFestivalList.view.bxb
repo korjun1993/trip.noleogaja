@@ -2,10 +2,6 @@ result-view{
   match : GPSFestivalList(this)
 
   message{
-
-
-    
-
     if(this.totalCount == 0){
       template ("주변에 행사가 없어요.")
       template ("근처에 진행중인 축제가 없네요.")

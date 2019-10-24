@@ -12,8 +12,8 @@ var secret = require('secret');
 
 var key = secret.get('key');
 
-module.exports.function = function selectShowDetail(festivals) {
-  let contentId = festivals.contentId;
+module.exports.function = function selectShowDetail(contentId) {
+  console.log(contentId);
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
