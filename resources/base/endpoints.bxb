@@ -16,7 +16,7 @@ endpoints {
     }
 
     action-endpoint (FindFestivalsByGPS) {
-      accepted-inputs (near, point)
+      accepted-inputs (near, point,pageNo)
       local-endpoint (find/findFestivalsByGPS.js)
     }
 

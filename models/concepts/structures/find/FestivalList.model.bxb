@@ -4,6 +4,11 @@ structure (FestivalList) {
     min (Required)
     type (PageNo)
   }
+  property (searchType){
+    min (Required)
+    type(SearchType)
+  }
+
   property (totalCount) {
     min (Required)
     type (TotalCount)
