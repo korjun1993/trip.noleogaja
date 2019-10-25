@@ -16,7 +16,7 @@ endpoints {
     }
 
     action-endpoint (FindFestivalsByGPS) {
-      accepted-inputs (near, point,pageNo)
+      accepted-inputs (near, point, pageNo)
       local-endpoint (find/findFestivalsByGPS.js)
     }
 
@@ -26,7 +26,7 @@ endpoints {
     }
     
     action-endpoint (ChangePage) {
-      accepted-inputs (festivalList, location, date, dateInterval, pageChange)
+      accepted-inputs (festivalList, location, date, dateInterval, point, pageChange)
       local-endpoint (lib/changePage.js)
     }
   }
