@@ -150,6 +150,41 @@ result-view{
 							}
 						}
 					}
+					spacer
+					if(this.point.latitude != ' ' && this.point.longitude != ' '){
+						map-card{
+							aspect-ratio(16:9)
+							title-area{
+								slot1{
+									single-line {
+										text {
+											style(Title_L)
+											color (Amber)
+											value("")
+										}
+									}
+								}
+							}
+							markers{
+								marker{
+									geo (this.point)
+									icon("/img/marker.png")
+									width (35)
+									height (40)
+									anchor-x (5)
+									anchor-y (15)
+									rotation (0)
+								}
+							}
+							zoom(16)
+							on-click{
+								intent{
+									goal: OpenBrowser
+									value: $expr(this.point)
+								}
+          		}
+						}
+					}
 				}
 			}
 		}
