@@ -5,6 +5,13 @@ action (SelectShowDetail) {
     input (contentId) {
       type (ContentId)
       min (Required) max (One)
+      default-init {
+        if (!exists(contentId)) {
+          intent {
+            goal: FindFestivals
+          }
+        }
+      }
     }
   }
   output (ShowDetail)
