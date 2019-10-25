@@ -19,6 +19,10 @@ action (FindFestivalsByGPS) {
         }
       }
     }
+    input (pageNo) {
+      type (PageNo)
+      min (Optional) max (One)
+    }
   }
   output (FestivalList)
 }

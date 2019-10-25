@@ -12,9 +12,9 @@ var secret = require('secret');
 
 var key = secret.get('key');
 
-module.exports.function = function findFestivalsByGPS (near, point) {
-  let pageNo = 1;
-
+module.exports.function = function findFestivalsByGPS (near, point, pageNo) {
+  if(pageNo == undefined) pageNo = 1;
+  let searchType = GPS;
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
@@ -67,7 +67,7 @@ module.exports.function = function findFestivalsByGPS (near, point) {
       }
     }
   }
-
+  festivalList['searchType'] = searchType;
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;

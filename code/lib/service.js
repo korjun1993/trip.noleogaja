@@ -134,7 +134,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
       }
     }
   }
-
+  festivalList['searchType'] = "normal";
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;
