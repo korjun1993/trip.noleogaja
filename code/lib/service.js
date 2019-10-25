@@ -59,12 +59,13 @@ function findFestivals (location, date, dateInterval, pageNo) {
   }
 
   if(date.length != 0 || dateInterval.length != 0) {
-   
+    let when = null;
     if(date.length != 0){
-      let when = getDate.getDate(date[0])
+      when = getDate.getDate(date[0]);
     }else if(dateInterval.length != 0){
-      let when = getDate.getDate(dateInterval[0])
+      when = getDate.getDate(dateInterval[0]);
     }
+
     festivalList['inputStartDate'] = when.startDate.substring(0, 4) + "년 " + when.startDate.substring(4, 6) + "월 " + when.startDate.substring(6, 8) + "일";
     
     if(when.endDate == when.startDate) {
@@ -74,11 +75,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
     }
 
     queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent(when.startDate);
-    if(when.endDate != null) {
-      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.endDate);
-    } else {
-      queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.startDate);
-    }
+    queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(when.endDate);
   } else {
     let tday = new Date();
     let year = tday.getFullYear();

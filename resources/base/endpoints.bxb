@@ -21,7 +21,7 @@ endpoints {
     }
 
     action-endpoint (OpenBrowser) {
-      accepted-inputs (homePage, tel, point)
+      accepted-inputs (homePage, tel, point, showDetail)
       local-endpoint (lib/openBrowser.js)
     }
     
