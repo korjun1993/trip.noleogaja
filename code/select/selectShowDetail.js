@@ -29,6 +29,10 @@ module.exports.function = function selectShowDetail(contentId) {
 
   let totalImageCount = imageResponse.totalCount;
 
+  images.push({
+    url : commonResponse.firstimage
+  })
+
   if (totalImageCount != 0) {
     let loopNum = imageResponse.items.item.length;
     let item = null;
