@@ -10,6 +10,10 @@ action (OpenBrowser) {
       type (Tel)
       min (Optional) max (One)
     }
+    input (point) {
+      type (geo.GeoPoint)
+      min (Optional) max (One)
+    }
   }
   output (URL)
 }

@@ -26,7 +26,7 @@ module.exports.function = function selectShowDetail(contentId) {
   let introResponse = http.getUrl(config.get('detailIntro.url') + queryParams, options).response.body.items.item;
   let detail = {};
   let images = [];
-
+  
   let totalImageCount = imageResponse.totalCount;
 
   if (totalImageCount != 0) {
@@ -47,13 +47,17 @@ module.exports.function = function selectShowDetail(contentId) {
       }
     }
   }
-
+  
   detail['addr1'] = commonResponse.addr1 ? commonResponse.addr1 : " ";
   detail['contentId'] = commonResponse.addr1 ? commonResponse.contentid : " ";
   detail['contentTypeId'] = commonResponse.contenttypeid ? commonResponse.contenttypeid : " ";
   detail['tel'] = commonResponse.tel ? commonResponse.tel : " ";
   detail['telName'] = commonResponse.telname ? commonResponse.telname : " ";
   detail['title'] = commonResponse.title ? commonResponse.title : " ";
+  detail['point'] = {
+                      longitude : commonResponse.mapx ? commonResponse.mapx : " ", //경도
+                      latitude : commonResponse.mapy ? commonResponse.mapy : " " //위도
+                    }
 
   detail['images'] = images ? images : " ";
 
