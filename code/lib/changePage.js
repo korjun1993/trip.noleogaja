@@ -1,8 +1,7 @@
 var console = require('console');
 var service = require('../lib/service')
 
-module.exports.function = function changePage (festivalList, location, date, dateInterval, pageChange) {
-  
+module.exports.function = function changePage (festivalList, location, date, dateInterval, point, pageChange) {
   var numOfRows = 20;
   var totalCount = festivalList.totalCount;
   var pageNo = festivalList.pageNo;
@@ -17,8 +16,11 @@ module.exports.function = function changePage (festivalList, location, date, dat
   else if(pageChange == '이전' && pageNo > 1){
     pageNo--;
   }
-  
-  console.log(service);
 
-  return service.findFestivals(location, date, dateInterval, pageNo);
+  if(festivalList.searchType == 'NORMAL'){
+    return service.findFestivals(location, date, dateInterval, pageNo);
+  }
+  else if(festivalList.searchType == 'GPS'){
+    return service.findFestivalsByGPS (point, pageNo);
+  }
 }

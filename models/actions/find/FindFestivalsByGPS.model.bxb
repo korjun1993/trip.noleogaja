@@ -6,7 +6,10 @@ action (FindFestivalsByGPS) {
       type (Near)
       min (Required) max (One)
     }
-
+    input (pageNo) {
+      type (PageNo)
+      min (Optional) max (One)
+    }
     computed-input (point){
       type (Point)
       min (Optional) max (One)
@@ -18,10 +21,6 @@ action (FindFestivalsByGPS) {
           }
         }
       }
-    }
-    input (pageNo) {
-      type (PageNo)
-      min (Optional) max (One)
     }
   }
   output (FestivalList)
