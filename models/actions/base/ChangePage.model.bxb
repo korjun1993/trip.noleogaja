@@ -18,6 +18,10 @@ action (ChangePage) {
       type(DateInterval)
       min (Optional) max (Many)
     }
+		input (point) {
+			type (Point)
+			min (Optional) max (One)
+		}
 		input (pageChange) {
 			type (PageChange)
 			min (Required) max (One)
