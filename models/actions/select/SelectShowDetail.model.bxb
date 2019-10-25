@@ -4,14 +4,16 @@ action (SelectShowDetail) {
   collect {
     input (contentId) {
       type (ContentId)
-      min (Required) max (One)
-      default-init {
-        if (!exists(contentId)) {
-          intent {
-            goal: FindFestivals
+      min (Required){
+        on-empty {
+          halt{
+            dialog {
+              template-macro (NotFoundWhatIsFestival)
+            }
           }
         }
-      }
+      } 
+      max (One)
     }
   }
   output (ShowDetail)

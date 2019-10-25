@@ -1,0 +1,11 @@
+template-macro-def (NotFoundWhatIsFestival) {
+  content {
+    template ("축제를 검색 후 이용해주세요")
+  }
+}
+
+template-macro-def (UNKNOWN_ERROR) {
+  content {
+    template ("더 좋은 서비스를 위해 노력하겠습니다")
+  }
+}
