@@ -1,0 +1,8 @@
+enum (IndexNo) {
+  description (축제 인덱스 번호)
+  symbol (1)
+  symbol (2)
+  symbol (3)
+  symbol (4)
+  symbol (5)
+}

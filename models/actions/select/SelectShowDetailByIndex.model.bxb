@@ -1,0 +1,36 @@
+action (SelectShowDetailByIndex) {
+  type(Search)
+  description (인덱스 번호를 선택해서 상세 페이지 접근)
+  collect {
+    input (indexNo) {
+      type (IndexNo)
+      min (Required)
+      {
+        on-empty {
+          halt{
+            dialog {
+              template-macro (NotFoundWhatIsFestival)
+            }
+          }
+        }
+      } 
+      max (One)
+    }
+
+    input (festivalList){
+      type (FestivalList)
+      min (Required)
+      {
+        on-empty {
+          halt{
+            dialog {
+              template-macro (NotFoundWhatIsFestival)
+            }
+          }
+        }
+      } 
+      max (One)
+    }
+  }
+  output (ShowDetail)
+}

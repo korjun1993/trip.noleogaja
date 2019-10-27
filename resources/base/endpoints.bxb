@@ -29,6 +29,11 @@ endpoints {
       accepted-inputs (festivalList, location, date, dateInterval, point, pageChange)
       local-endpoint (lib/changePage.js)
     }
+
+    action-endpoint (SelectShowDetailByIndex) {
+      accepted-inputs (indexNo, festivalList)
+      local-endpoint (select/selectShowDetailByIndex.js)
+    }
   }
 }
 
