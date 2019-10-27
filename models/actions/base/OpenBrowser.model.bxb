@@ -14,6 +14,10 @@ action (OpenBrowser) {
       type (geo.GeoPoint)
       min (Optional) max (One)
     }
+    input (showDetail) {
+      type (ShowDetail)
+      min (Optional) max (One)
+    }
   }
   output (URL)
 }
