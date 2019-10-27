@@ -19,7 +19,8 @@ var key = secret.get('key');
 module.exports = {
   "findFestivals": findFestivals,
   "findFestivalsByGPS" : findFestivalsByGPS,
-  "filterString" : filterString
+  "filterString" : filterString,
+  "selectShowDetail" : selectShowDetail
 }
 
 // 날짜 및 지역 기반 축제 검색
@@ -29,7 +30,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
   let festivalList = {};
 
-  queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
+  queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('5');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest');
@@ -42,7 +43,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
     let returnName = location.substring(0, pos);
     
     if(subLocName != "전체") {
-      returnName += subLocName;
+      returnName += " " + subLocName;
     }
 
     festivalList['inputLocation'] = returnName;
@@ -109,6 +110,10 @@ function findFestivals (location, date, dateInterval, pageNo) {
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
 
+      if(item.firstimage == undefined) {
+        item["firstimage"] = "/img/default_image.png"
+      }
+
       festivals.push({
         "contentId": item.contentid,
         "title": item.title,
@@ -122,6 +127,12 @@ function findFestivals (location, date, dateInterval, pageNo) {
         item = response.items.item[i];
         let pos = item.addr1.indexOf(' ');
         pos = item.addr1.indexOf(' ', pos + 1);
+
+        if(item.firstimage == undefined) {
+          item["firstimage"] = "/img/default_image.png"
+        }
+
+        console.log(item);
 
         festivals.push({
           "contentId": item.contentid,
@@ -150,7 +161,7 @@ function findFestivalsByGPS (point, pageNo) {
   if(pageNo == undefined) pageNo = 1;
   let searchType = "GPS";
   let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
-  queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20');
+  queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('5');
   queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
@@ -178,6 +189,10 @@ function findFestivalsByGPS (point, pageNo) {
       let pos = item.addr1.indexOf(' ');
       pos = item.addr1.indexOf(' ', pos + 1);
 
+      if(item.firstimage == undefined) {
+        item["firstimage"] = "/img/default_image.png"
+      }
+
       festivals.push({
         "contentId": item.contentid,
         "title": item.title,
@@ -190,6 +205,10 @@ function findFestivalsByGPS (point, pageNo) {
         item = response.items.item[i];
         let pos = item.addr1.indexOf(' ');
         pos = item.addr1.indexOf(' ', pos + 1);
+
+        if(item.firstimage == undefined) {
+          item["firstimage"] = "/img/default_image.png"
+        }
 
         festivals.push({
           "contentId": item.contentid,
@@ -211,8 +230,90 @@ function findFestivalsByGPS (point, pageNo) {
   return festivalList;
 }
 
-//
-
 function filterString(str) {
   return str.replace(/(<([^>]+)>)/ig,"").replace(/&nbsp;/gi," ").replace(/&gt;/gi, ">");
+}
+
+function selectShowDetail(contentId) {
+  let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
+  queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC');
+  queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('noleogaja');
+  queryParams += '&' + encodeURIComponent('contentId') + '=' + encodeURIComponent(contentId);
+  queryParams += '&' + encodeURIComponent('contentTypeId') + '=' + encodeURIComponent('15');
+
+  let commonResponse = http.getUrl(config.get('detailCommon.url') + queryParams + config.get('commonEndQuery'), options).response.body.items.item;
+  let imageResponse = http.getUrl(config.get('detailImage.url') + queryParams, options).response.body;
+  let introResponse = http.getUrl(config.get('detailIntro.url') + queryParams, options).response.body.items.item;
+  let detail = {};
+  let images = [];
+  
+  let totalImageCount = imageResponse.totalCount;
+
+  images.push({
+    url : commonResponse.firstimage
+  })
+
+  if (totalImageCount != 0) {
+    let loopNum = imageResponse.items.item.length;
+    let item = null;
+
+    if (loopNum == undefined) {
+      item = imageResponse.items.item;
+      images.push({
+        url : item.originimgurl
+      });
+    } else {
+      for (let i = 0; i < loopNum; i++) {
+        item = imageResponse.items.item[i];
+        images.push({
+          url : item.originimgurl
+        });
+      }
+    }
+  }
+  
+  detail['addr1'] = commonResponse.addr1 ? commonResponse.addr1 : " ";
+  detail['contentId'] = commonResponse.addr1 ? commonResponse.contentid : " ";
+  detail['contentTypeId'] = commonResponse.contenttypeid ? commonResponse.contenttypeid : " ";
+  detail['tel'] = commonResponse.tel ? commonResponse.tel : " ";
+  detail['telName'] = commonResponse.telname ? commonResponse.telname : " ";
+  detail['title'] = commonResponse.title ? commonResponse.title : " ";
+  detail['point'] = {
+                      longitude : commonResponse.mapx ? commonResponse.mapx : " ", //경도
+                      latitude : commonResponse.mapy ? commonResponse.mapy : " " //위도
+                    }
+
+  detail['images'] = images ? images : " ";
+
+  detail['ageLimit'] = introResponse.agelimit ? filterString(introResponse.agelimit) : " ";
+  detail['eventPlace'] = introResponse.eventplace ? filterString(introResponse.eventplace) : " ";
+  detail['useTimeFestival'] = introResponse.usetimefestival ? filterString(introResponse.usetimefestival) : " ";
+  detail['playTime'] = introResponse.playtime ? filterString(introResponse.playtime) : " ";
+  detail['subEvent'] = introResponse.subevent ? filterString(introResponse.subevent) : " ";
+  detail['placeInfo'] = introResponse.placeinfo ? filterString(introResponse.placeinfo) : " ";
+  detail['discountInfoFestival'] = introResponse.discountinfofestival ? filterString(introResponse.discountinfofestival) : " ";
+  
+  if(commonResponse.homepage) {
+    let startPos = commonResponse.homepage.indexOf('"');
+    let endPos = commonResponse.homepage.indexOf('"', startPos + 1);
+    detail['homePage'] = commonResponse.homepage.substring(startPos + 1, endPos);
+  } else {
+    detail['homePage'] = " ";
+  }
+
+  if(introResponse.eventstartdate) {
+    detail['eventStartDate'] = parseInt(introResponse.eventstartdate % 1000000 / 10000) + "년 " + parseInt(introResponse.eventstartdate % 10000 / 100) + "월 " + parseInt(introResponse.eventstartdate % 100) + "일";
+  } else {
+    detail['eventStartDate'] = " ";
+  }
+
+  if(introResponse.eventenddate) {
+    detail['eventEndDate'] = parseInt(introResponse.eventenddate % 1000000 / 10000) + "년 " + parseInt(introResponse.eventenddate % 10000 / 100) + "월 " + parseInt(introResponse.eventenddate % 100) + "일";
+  } else {
+    detail['eventEndDate'] = " ";
+  }
+
+  console.log(detail);
+
+  return detail;
 }
