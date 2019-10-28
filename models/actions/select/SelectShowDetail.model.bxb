@@ -1,4 +1,4 @@
-action (SelectShowDetail) {
+  action (SelectShowDetail) {
   description (상세 보기)
   type(Search)
   collect {

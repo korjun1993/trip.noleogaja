@@ -192,7 +192,16 @@ result-view{
 
 	conversation-drivers{
     conversation-driver{
-      template ("유튜브에서 찾아줘")
+      template ("유튜브")
+    }
+		conversation-driver{
+      template ("전화")
+    }
+		conversation-driver{
+      template ("홈페이지")
+    }
+		conversation-driver{
+      template ("상세위치")
     }
   }
 }
