@@ -31,6 +31,20 @@ action (SelectShowDetailByIndex) {
       } 
       max (One)
     }
+    
+    input (layout){
+      type (Layout)
+      min (Optional)
+    }
+    
+		computed-input (layoutChangeEvent){
+			type (Layout)
+				compute{
+				  intent{
+					  goal: GoToDetail
+				}
+			}
+		}
   }
   output (ShowDetail)
 }

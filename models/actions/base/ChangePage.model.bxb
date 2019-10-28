@@ -26,6 +26,20 @@ action (ChangePage) {
 			type (PageChange)
 			min (Required) max (One)
 		}
+		input (layout) {
+			type (Layout)
+			min (Optional) max (One)
+		}
+		computed-input (layoutChangeEvent){
+			type (Layout)
+				compute{
+				if (layout.layoutType == 'DETAIL'){
+					intent{
+						goal: GoToList
+					}
+				}
+			}
+		}
 	}
 	output (FestivalList)
 }

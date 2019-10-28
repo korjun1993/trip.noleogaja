@@ -1,0 +1,10 @@
+structure (Layout) {
+  description (화면정보)
+  property (layoutType) {
+    type (LayoutType)
+    min (Required) max (One)
+  }
+  features{
+    transaction
+  }
+}
