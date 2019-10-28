@@ -149,7 +149,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;
-  
+  festivalList['totalPageCount'] = Math.ceil(totalCount / 5);
   console.log(festivalList)
 
   return festivalList;
@@ -220,11 +220,14 @@ function findFestivalsByGPS (point, pageNo) {
       }
     }
   }
+
+  console.log(Math.ceil(totalCount / 5));
+
   festivalList['searchType'] = searchType;
   festivalList['pageNo'] = pageNo;
   festivalList['totalCount'] = totalCount;
   festivalList['festivals'] = festivals;
-
+  festivalList['totalPageCount'] = Math.ceil(totalCount / 5);
   console.log(festivalList);
 
   return festivalList;

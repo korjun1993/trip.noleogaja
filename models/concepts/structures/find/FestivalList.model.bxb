@@ -13,6 +13,11 @@ structure (FestivalList) {
     min (Required)
     type (TotalCount)
   }
+
+  property (totalPageCount) {
+    min (Required)
+    type (TotalPageCount)
+  }
   property (inputStartDate) {
     min (Optional)
     type (InputStartDate)

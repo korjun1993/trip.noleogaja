@@ -214,5 +214,8 @@ result-view{
 		conversation-driver{
       template ("상세위치")
     }
+		conversation-driver{
+      template ("이전")
+    }
   }
 }
