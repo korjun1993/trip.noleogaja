@@ -1,0 +1,3 @@
+integer (TotalPageCount) {
+  description (__DESCRIPTION__)
+}

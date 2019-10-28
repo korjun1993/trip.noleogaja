@@ -194,5 +194,8 @@ result-view{
     conversation-driver{
       template ("유튜브에서 찾아줘")
     }
+		conversation-driver{
+      template ("이전")
+    }
   }
 }
