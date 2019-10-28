@@ -3,6 +3,9 @@ module.exports.function = function openBrowser (showDetail, showDetailType) {
   const config = require('config');
   const fail = require('fail');
   let result = '';
+
+  console.log(showDetail)
+
   if(showDetail == undefined){
     throw fail.checkedError('There is no festival data', 'NotFoundFestival', null); 
   }
