@@ -1,23 +1,28 @@
 endpoints {
   action-endpoints {
     action-endpoint (FindFestivals) {
-      accepted-inputs (location, date, dateInterval, pageNo)
+      accepted-inputs (location, date, dateInterval, pageNo, layout)
       local-endpoint (find/findFestivals.js)
+    }
+
+    action-endpoint (FindFestivalsByGPS) {
+      accepted-inputs (near, point, pageNo, layout)
+      local-endpoint (find/findFestivalsByGPS.js)
+    }
+
+    action-endpoint (SelectShowDetail) {
+      accepted-inputs (contentId, layout, layoutChangeEvent)
+      local-endpoint (select/selectShowDetail.js)
+    }
+
+    action-endpoint (SelectShowDetailByIndex) {
+      accepted-inputs (indexNo, festivalList, layout, layoutChangeEvent)
+      local-endpoint (select/selectShowDetailByIndex.js)
     }
 
     action-endpoint (GetLocation) {
       accepted-inputs (locationError)
       local-endpoint (lib/getLocation.js)
-    }
-    
-    action-endpoint (SelectShowDetail) {
-      accepted-inputs (contentId)
-      local-endpoint (select/selectShowDetail.js)
-    }
-
-    action-endpoint (FindFestivalsByGPS) {
-      accepted-inputs (near, point, pageNo)
-      local-endpoint (find/findFestivalsByGPS.js)
     }
 
     action-endpoint (OpenBrowser) {
@@ -26,13 +31,16 @@ endpoints {
     }
     
     action-endpoint (ChangePage) {
-      accepted-inputs (festivalList, location, date, dateInterval, point, pageChange)
+      accepted-inputs (festivalList, location, date, dateInterval, point, pageChange, layout, layoutChangeEvent)
       local-endpoint (lib/changePage.js)
     }
 
-    action-endpoint (SelectShowDetailByIndex) {
-      accepted-inputs (indexNo, festivalList)
-      local-endpoint (select/selectShowDetailByIndex.js)
+    action-endpoint (GoToList) {
+      local-endpoint (lib/goToList.js)
+    }
+
+    action-endpoint (GoToDetail) {
+      local-endpoint (lib/goToDetail.js)
     }
   }
 }

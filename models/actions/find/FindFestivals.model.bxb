@@ -9,15 +9,21 @@ action (FindFestivals) {
       type(Date)
       min (Optional) max (Many)
     }
-
     input (dateInterval){
       type(DateInterval)
       min (Optional) max (Many)
     }
-
     input (pageNo) {
       type (PageNo)
       min (Optional) max (One)
+    }
+    input (layout){
+      type (Layout)
+      default-init{
+        intent{
+          goal : GoToList
+        }
+      }
     }
   }
   output (FestivalList)

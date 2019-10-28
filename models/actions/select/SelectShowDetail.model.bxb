@@ -1,6 +1,6 @@
 action (SelectShowDetail) {
   description (상세 보기)
-  type(Fetch)
+  type(Search)
   collect {
     input (contentId) {
       type (ContentId)
@@ -15,6 +15,18 @@ action (SelectShowDetail) {
       } 
       max (One)
     }
+    input (layout){
+      type (Layout)
+      min (Optional)
+    }
+		computed-input (layoutChangeEvent){
+			type (Layout)
+				compute{
+				  intent{
+					  goal: GoToDetail
+				}
+			}
+		}
   }
   output (ShowDetail)
 }

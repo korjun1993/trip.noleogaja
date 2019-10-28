@@ -22,6 +22,14 @@ action (FindFestivalsByGPS) {
         }
       }
     }
+    input (layout){
+      type (Layout)
+      default-init{
+        intent{
+          goal : GoToList
+        }
+      }
+    }
   }
   output (FestivalList)
 }

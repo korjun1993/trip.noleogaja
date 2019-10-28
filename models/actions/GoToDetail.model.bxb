@@ -1,0 +1,5 @@
+action (GoToDetail) {
+  type(BeginTransaction)
+  description (현재 화면 상태를 상세페이지로 변경)
+  output (Layout)
+}
