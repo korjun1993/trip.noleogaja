@@ -1,0 +1,10 @@
+enum (ShowDetailType) {
+  description (상세 페이지에서 URL에 넘겨줄 값이 무엇인지 확인하기 위한 타입)
+  symbol (1)
+  symbol (2)
+  symbol (3)
+  symbol (4)
+  features{
+    transient
+  }
+}

@@ -2,22 +2,37 @@ action (OpenBrowser) {
   description (URL, tel을 이용하여 app-launch를 실행하는 action)
   type(Constructor)
   collect {
-    input (homePage) {
-      type (HomePage)
-      min (Optional) max (One)
-    }
-    input (tel) {
-      type (Tel)
-      min (Optional) max (One)
-    }
-    input (point) {
-      type (geo.GeoPoint)
-      min (Optional) max (One)
-    }
-    input (showDetail) {
+    input (showDetail){
       type (ShowDetail)
-      min (Optional) max (One)
+      min (Optional)
+    }
+    input (showDetailType){
+      type (ShowDetailType)
+      min (Required)
+      max (One)
     }
   }
   output (URL)
+  {
+    throws{
+      error (NotFoundFestival){
+        on-catch{
+          halt{
+            dialog{
+              template-macro (NotFoundWhatIsFestival)
+            }
+          }
+        }
+      }
+      unknown-error{
+        on-catch{
+          halt{
+            dialog{
+              template-macro (UNKNOWN_ERROR)
+            }
+          }
+        }
+      }
+    }
+  }
 }
