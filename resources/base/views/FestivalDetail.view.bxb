@@ -9,8 +9,10 @@ result-view{
 		layout{
 			section{
 				content{
-					image-carousel {
-						images (this.images)
+					if (this.images != ' ') {
+						image-carousel {
+							images (this.images)
+						}
 					}
 					title-area {
 						halign (Center)
@@ -123,7 +125,10 @@ result-view{
 							on-click{
 								intent{
 									goal: OpenBrowser
-									value: $expr(this.homePage)
+									value: ShowDetail{
+										homePage : $expr(this.homePage)
+									}
+									value: ShowDetailType(3)
 								}
 							}
 						}
@@ -145,7 +150,10 @@ result-view{
 							on-click{
 								intent{
 									goal: OpenBrowser
-									value: $expr(this.tel)
+									value: ShowDetail{
+										tel : $expr(this.tel)
+									}
+									value: ShowDetailType(1)
 								}
 							}
 						}
@@ -180,7 +188,10 @@ result-view{
 							on-click{
 								intent{
 									goal: OpenBrowser
-									value: $expr(this.point)
+									value: ShowDetail{
+										point : $expr(this.point)
+									}
+									value: ShowDetailType(2)
 								}
           		}
 						}
