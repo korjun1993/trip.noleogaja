@@ -104,12 +104,18 @@ function findFestivals (location, date, dateInterval, pageNo) {
   if(totalCount != 0) {
     let loopNum = response.items.item.length;
     let item = null;
+    let outputLoc = ' ';
     
     if(loopNum == undefined) {
       item = response.items.item;
-      let pos = item.addr1.indexOf(' ');
-      pos = item.addr1.indexOf(' ', pos + 1);
+      outputLoc = ' ';
 
+      if(item.addr1 != undefined) {
+        let pos = item.addr1.indexOf(' ');
+        pos = item.addr1.indexOf(' ', pos + 1);
+        outputLoc = item.addr1.substring(0, pos);
+      }
+      
       if(item.firstimage == undefined) {
         item["firstimage"] = "/img/default_image.png"
       }
@@ -120,13 +126,18 @@ function findFestivals (location, date, dateInterval, pageNo) {
         "eventStartDate": parseInt(item.eventstartdate % 1000000 / 10000) + "년 " + parseInt(item.eventstartdate % 10000 / 100) + "월 " + parseInt(item.eventstartdate % 100) + "일",
         "eventEndDate": parseInt(item.eventenddate % 1000000 / 10000) + "년 " + parseInt(item.eventenddate % 10000 / 100) + "월 " + parseInt(item.eventenddate % 100) + "일",
         "firstImage": item.firstimage,
-        "outputLocation": item.addr1.substring(0, pos)
+        "outputLocation": outputLoc
       });
     } else {
       for(let i = 0; i < loopNum; i++) {
         item = response.items.item[i];
-        let pos = item.addr1.indexOf(' ');
-        pos = item.addr1.indexOf(' ', pos + 1);
+        outputLoc = ' ';
+        
+        if(item.addr1 != undefined) {
+          let pos = item.addr1.indexOf(' ');
+          pos = item.addr1.indexOf(' ', pos + 1);
+          outputLoc = item.addr1.substring(0, pos);
+        }
 
         if(item.firstimage == undefined) {
           item["firstimage"] = "/img/default_image.png"
@@ -140,7 +151,7 @@ function findFestivals (location, date, dateInterval, pageNo) {
           "eventStartDate": parseInt(item.eventstartdate % 1000000 / 10000) + "년 " + parseInt(item.eventstartdate % 10000 / 100) + "월 " + parseInt(item.eventstartdate % 100) + "일",
           "eventEndDate": parseInt(item.eventenddate % 1000000 / 10000) + "년 " + parseInt(item.eventenddate % 10000 / 100) + "월 " + parseInt(item.eventenddate % 100) + "일",
           "firstImage": item.firstimage,
-          "outputLocation": item.addr1.substring(0, pos)
+          "outputLocation": outputLoc
         });
       }
     }
@@ -183,11 +194,17 @@ function findFestivalsByGPS (point, pageNo) {
   if (totalCount != 0) {
     let loopNum = response.items.item.length;
     let item = null;
+    let outputLoc = ' ';
 
     if (loopNum == undefined) {
       item = response.items.item;
-      let pos = item.addr1.indexOf(' ');
-      pos = item.addr1.indexOf(' ', pos + 1);
+      outputLoc = ' ';
+        
+      if(item.addr1 != undefined) {
+        let pos = item.addr1.indexOf(' ');
+        pos = item.addr1.indexOf(' ', pos + 1);
+        outputLoc = item.addr1.substring(0, pos);
+      }
 
       if(item.firstimage == undefined) {
         item["firstimage"] = "/img/default_image.png"
@@ -198,13 +215,18 @@ function findFestivalsByGPS (point, pageNo) {
         "title": item.title,
         "dist": (item.dist / 1000).toFixed(1) + "km",
         "firstImage": item.firstimage,
-        "outputLocation": item.addr1.substring(0, pos)
+        "outputLocation": outputLoc
       });
     } else {
       for (let i = 0; i < loopNum; i++) {
         item = response.items.item[i];
-        let pos = item.addr1.indexOf(' ');
-        pos = item.addr1.indexOf(' ', pos + 1);
+        outputLoc = ' ';
+        
+        if(item.addr1 != undefined) {
+          let pos = item.addr1.indexOf(' ');
+          pos = item.addr1.indexOf(' ', pos + 1);
+          outputLoc = item.addr1.substring(0, pos);
+        }
 
         if(item.firstimage == undefined) {
           item["firstimage"] = "/img/default_image.png"
@@ -215,7 +237,7 @@ function findFestivalsByGPS (point, pageNo) {
           "title": item.title,
           "dist": (item.dist / 1000).toFixed(1) + "km",
           "firstImage": item.firstimage,
-          "outputLocation": item.addr1.substring(0, pos)
+          "outputLocation": outputLoc
         });
       }
     }
