@@ -1,5 +1,4 @@
 structure (Date) {
 	description (특정일자)
 	role-of (time.Date)
-	features{transient}
 }
