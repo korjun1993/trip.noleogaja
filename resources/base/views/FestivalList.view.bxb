@@ -1,63 +1,66 @@
 result-view{
-  match : FestivalList(this)
-
-  message{
-    if(this.totalCount == 0){
-       choose (Random) {
-      template ("검색된 결과가 없습니다.")
-      template ("주변에 행사가 없어요.")
-       }
-    }else-if(this.inputLocation != ' ' && this.inputStartDate != ' ' && this.inputEndDate != ' '){
-      template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개가 있어요.")
-    }else-if(this.inputLocation != ' ' && this.inputStartDate != ' '){
-      template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개가 있어요.")
-    }else-if(this.inputStartDate != ' ' && this.inputEndDate != ' '){
-      template ("#{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개가 있어요.")
-    }else-if(this.inputStartDate != ' '){
-      template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개가 있어요.")
-    }else{
-      choose (Random) {
-        template ("근처 검색 결과, #{value(this.totalCount)}개가 있어요.")
-        template ("주변에 #{value(this.totalCount)}개의 행사가 진행중이에요!")
-        template ("#{value(this.totalCount)}개 중 어디로 가시겠어요?")
-    }
-  }
-  }
-  
-  render{
-    layout{
-      section{
-        content{
-          for-each (this.festivals){
-            as (item){
-              layout-macro (festival-result){
-                param (festivals){
-                  expression (item)
-                }
-              }
-            }
-          }
-          title-area{
-            halign (Center)
-            slot1{
-              text{
-                style(Detail_L_Soft)
-                 value("#{value(this.pageNo)} / #{value(this.totalPageCount)} Page")
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  conversation-drivers{
-    conversation-driver{
-      template ("다음")
-    }
-
-    conversation-driver{
-      template ("이전")
-    }
-  }
+	match : FestivalList(this)
+	
+	message{
+		if(this.totalCount == 0){
+			choose (Random) {
+				template ("검색된 결과가 없습니다.")
+				template ("주변에 행사가 없어요.")
+			}
+		}else-if(this.inputLocation != ' ' && this.inputStartDate != ' ' && this.inputEndDate != ' '){
+			template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개가 있어요.")
+		}else-if(this.inputLocation != ' ' && this.inputStartDate != ' '){
+			template ("#{value(this.inputLocation)}에서 #{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개가 있어요.")
+		}else-if(this.inputStartDate != ' ' && this.inputEndDate != ' '){
+			template ("#{value(this.inputStartDate)} 부터 #{value(this.inputEndDate)}까지 검색결과는 #{value(this.totalCount)}개가 있어요.")
+		}else-if(this.inputStartDate != ' '){
+			template ("#{value(this.inputStartDate)} 검색결과는 #{value(this.totalCount)}개가 있어요.")
+		}else{
+			choose (Random) {
+				template ("근처 검색 결과, #{value(this.totalCount)}개가 있어요.")
+				template ("주변에 #{value(this.totalCount)}개의 행사가 진행중이에요!")
+				template ("#{value(this.totalCount)}개 중 어디로 가시겠어요?")
+			}
+		}
+	}
+	
+	render{
+		layout{
+			section{
+				content{
+					for-each (this.festivals){
+						as (item){
+							layout-macro (festival-result){
+								param (festivals){
+									expression (item)
+								}
+							}
+						}
+					}
+					
+					if(this.totalPageCount != 0){
+						title-area{
+							halign (Center)
+							slot1{
+								text{
+									style(Detail_L_Soft)
+									value("#{value(this.pageNo)} / #{value(this.totalPageCount)} Page")
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	conversation-drivers{
+		conversation-driver{
+			template ("다음")
+		}
+		
+		conversation-driver{
+			template ("이전")
+		}
+	}
 }
