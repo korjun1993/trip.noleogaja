@@ -29,4 +29,17 @@
 		}
   }
   output (ShowDetail)
+  {
+    throws{
+      unknown-error{
+        on-catch{
+          halt{
+            dialog{
+              template-macro (UNKNOWN_ERROR)
+            }
+          }
+        }
+      }
+    }
+  }
 }

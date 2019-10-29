@@ -2,4 +2,19 @@ action (GoToList) {
   type(BeginTransaction)
   description (현재 화면 상태를 목록페이지로 변경)
   output (Layout)
+
+
+  {
+    throws{
+      unknown-error{
+        on-catch{
+          halt{
+            dialog{
+              template-macro (UNKNOWN_ERROR)
+            }
+          }
+        }
+      }
+    }
+  }
 }
