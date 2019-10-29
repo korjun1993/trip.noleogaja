@@ -8,4 +8,19 @@ action (GetLocation) {
 		}
 	}
 	output (Location)
+
+	{
+    throws{
+      
+      unknown-error{
+        on-catch{
+          halt{
+            dialog{
+              template-macro (UNKNOWN_ERROR)
+            }
+          }
+        }
+      }
+    }
+  }
 }

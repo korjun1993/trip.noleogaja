@@ -6,6 +6,13 @@ template-macro-def (NotFoundWhatIsFestival) {
 
 template-macro-def (UNKNOWN_ERROR) {
   content {
-    template ("더 좋은 서비스를 위해 노력하겠습니다")
+    template ("현재는 실행이 어렵네요. 더 좋은 서비스를 위해 노력할게요")
   }
 }
+
+template-macro-def (NotFoundFestivalList) {
+  content {
+    template ("검색한 후에 선택해주세요")
+  }
+}
+
