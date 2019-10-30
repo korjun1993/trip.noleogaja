@@ -36,6 +36,10 @@ function findFestivals (location, date, dateInterval, pageNo) {
   queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest');
   queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('P');
   
+  if(location == "전체"){
+    location = undefined;
+  }
+
   if(location != undefined) {
     let pos = location.indexOf('-');
     let mainLocName = location.substring(0, pos);

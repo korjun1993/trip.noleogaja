@@ -1,6 +1,6 @@
 capsule {
   id (trip.noleogaja)
-  version (1.0.0)
+  version (1.1.0)
   format (3)
   targets {
     target (bixby-mobile-ko-KR)
@@ -34,5 +34,10 @@ capsule {
       as (geo)
       version-from (entity)
     }
+  }
+
+  store-sections{
+    section (TravelAndTransportation)
+    section (Local)
   }
 }

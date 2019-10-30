@@ -8,7 +8,7 @@ enum (Location) {
   // # 대전광역시
   // # 광주광역시
   // # 부산광역시
-
+  symbol (전체)
   symbol (서울특별시-전체)
   symbol (서울특별시-강남구)
   symbol (서울특별시-강동구)

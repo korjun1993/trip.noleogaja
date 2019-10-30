@@ -4,7 +4,16 @@ action (ChangePage) {
 	collect {
 		input(festivalList){
 			type(FestivalList)
-			min (Required) max(One)
+			min (Required){
+				on-empty{
+					halt{
+						dialog{
+							template-macro (NotFoundWhatIsFestival)
+						}
+					}
+				}
+			}
+			max(One)
 		}
     input (location) {
       type (Location)
