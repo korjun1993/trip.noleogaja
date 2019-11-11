@@ -4,13 +4,6 @@ capsule-info {
   icon-asset (/img/logo.png)
   description ("놀러가자는 전국 축제 정보를 제공하는 캡슐입니다. 날짜와 위치 정보를 말하여 간편하게 축제를 확인할 수 있습니다. 여러분의 여행을 더욱 알차게 구성해보세요. 우리 같이 '놀러가자'!")
   dispatch-name (놀러가자)
-  privacy-policy-url (https://docs.google.com/document/d/11kpugkcrS0rOSmE3l2jdxLxxorhMT4IybRfAz4_0xjs/edit?usp=sharing)
-  dispatch-aliases {
-    alias (여행가자)
-    alias (축제가자)
-    alias (행사가자)
-    alias (공연가자)
-  }
   search-keywords {
     keyword (놀러가자)
     keyword (여행)
